@@ -240,7 +240,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 10px 0 10px 30px; */
+  padding: 15px 10px;
   font-size: 1.9rem;
   color: #4e4039;
   white-space: nowrap;
@@ -1551,7 +1551,7 @@ span:hover {
 /* Styled buttons from Danil Goncharenko  */
 
 #navbar a:hover {
-  margin-bottom: 10px;
+  font-size: 2rem;
 }
 
 #navbar .homeStyle {
