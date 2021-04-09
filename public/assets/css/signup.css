@@ -1,0 +1,104 @@
+#hero {
+
+  background-color: #00C3F7;
+  width: 100%;
+}
+.overallContainer {
+  width: 100%;
+  /* height: 100vh; */
+}
+
+body {
+  width: 100%;
+  
+  background-color: #4DD5F9;
+}
+
+#header {
+  background-color: #84E2FB;
+}
+
+.col-lg-6 {
+  /* background-color: red; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#hero h2 {
+  color: rgb(255, 249, 249);
+  font-size: 2rem;
+}
+
+#hero input.form-control {
+  width: 400px;
+  font-size: 1.5rem;
+}
+
+#hero label {
+  font-size: 2.5rem;
+}
+
+#hero .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+#hero .container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+  width: 500px;
+  height: 300px;
+  margin-bottom: 30px;
+}
+
+#hero .container form input {
+  font-family: cursive;
+}
+
+.container button {
+  width: 200px;
+}
+
+.container p, .container label{
+  color: #ffffff;
+}
+
+.container p {
+  font-size: 1.5rem;
+}
+
+.container p a {
+  color: blue;
+}
+
+.error-danger{
+  width: 400px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.bottomImage {
+  /* border: 1px solid black; */
+  height: 200px;
+}
+
+#hero .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* justify-content: space-between; */
+  background: url(/images/kids.png) bottom no-repeat;
+  background-size: 700px;
+  height: 650px;
+}

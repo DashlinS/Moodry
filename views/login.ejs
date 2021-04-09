@@ -1,0 +1,73 @@
+<%- include('header'); -%>
+<head>
+  <link rel="stylesheet" href="assets/css/login.css" />
+</head>
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="logo">
+      <h1 class="text-light">
+        <a href="/index"
+          ><span>
+            <span class="purple">M</span>
+            <span class="blue">oo</span>
+            <span class="darkgreen">d</span>
+            <span class="yellow">r</span>
+            <span class="orange">y</span>
+          </span></a
+        >
+      </h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    </div>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li>
+          <a class="nav-link scrollto active homeStyle outline" href="/index">Home</a>
+        </li>
+        <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
+        <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
+        <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
+        <li><a class="nav-link scrollto aboutUs outline" href="/about">About Us</a></li>
+        <li>
+          <a class="nav-link scrollto contactUs outline" href="/contact">Contact</a>
+        </li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    <!-- .navbar -->
+  </div>
+</header>
+<!-- End Header -->
+<div class="container">
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container">
+      <div class="error-danger">
+        <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+      </div>
+      <form action="/login" method="post">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="text" class="form-control" name="email" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" name="password" />
+        </div>
+
+        <span
+          ><button type="submit" class="btn-get-started btn-lg first">
+            Login
+          </button></span
+        >
+      </form>
+      <p>Don't have an account? <a href="/signup">Signup</a></p>
+      <p>Head to main page? <a href="/">Home</a></p>
+    </div>
+    <div class="bottomImage"></div>
+  </section>
+  <!-- End Hero -->
+</div>
