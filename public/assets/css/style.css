@@ -530,11 +530,11 @@ a:hover {
     width: 80%;
   }
     .title-light span {
-    font-family: jelly;
-    letter-spacing: -18px;
-    font-size: 8rem;
+    letter-spacing: -22px;
+    font-size: 7rem;
   }
 }
+
 
 @media (max-height: 600px) {
   #hero {
@@ -1495,6 +1495,26 @@ section {
     font-family: jelly;
     letter-spacing: -18px;
     font-size: 8rem;
+  }
+}
+
+@media (max-width: 430px){
+    .title-light span {
+    letter-spacing: -16px;
+    font-size: 6.5rem;
+  }
+  .title-light .blue:after {
+    display: none;
+  }
+}
+
+@media (max-width: 380px){
+    .title-light span {
+    letter-spacing: -13px;
+    font-size: 6rem;
+  }
+  .title-light .blue:after {
+    display: none;
   }
   
 }
