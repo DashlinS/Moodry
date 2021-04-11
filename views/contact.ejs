@@ -1,9 +1,18 @@
 <%- include('header'); -%>
+<head><link rel="stylesheet" href="assets/css/contact.css"></head>
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex align-items-center justify-content-between">
     <div class="logo">
       <h1 class="text-light">
-        <a href="/index"><span>Moodry</span></a>
+        <a href="/index"
+          ><span>
+            <span class="purple">M</span>
+            <span class="blue">oo</span>
+            <span class="darkgreen">d</span>
+            <span class="yellow">r</span>
+            <span class="orange">y</span>
+          </span></a
+        >
       </h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -11,15 +20,15 @@
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto outline" href="/index">Home</a></li>
+        <li><a class="nav-link scrollto outline homeStyle" href="/index">Home</a></li>
         <!-- <li><a class="nav-link scrollto" href="/profile">Profile</a></li>
           <li><a class="nav-link scrollto" href="/watch">Watch</a></li> -->
         <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
         <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
         <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
-        <li><a class="nav-link scrollto outline" href="/about">About Us</a></li>
-        <li><a class="nav-link scrollto active outline" href="/contact">Contact</a></li>
+        <li><a class="nav-link scrollto aboutUs outline" href="/about">About Us</a></li>
+        <li><a class="nav-link scrollto contactUs active outline" href="/contact">Contact</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
@@ -31,7 +40,7 @@
 <section id="contact" class="contact">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
-      <h2>Contact Us</h2>
+      <!-- <h2>Contact Us</h2> -->
       <p>Contact us the get started</p>
     </div>
 

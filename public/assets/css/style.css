@@ -176,6 +176,11 @@ a:hover {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
+    .title-light span {
+    font-family: jelly;
+    letter-spacing: -18px;
+    font-size: 8rem;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -388,11 +393,13 @@ a:hover {
   background-color: #fff;
   overflow-y: auto;
   transition: 0.3s;
+  height: 315px;
+  background-color: #21cfff;
 }
 
 .navbar-mobile a {
   padding: 10px 20px;
-  font-size: 15px;
+  font-size: 20px;
   color: #7a6960;
 }
 
@@ -521,6 +528,11 @@ a:hover {
 @media (max-width: 575px) {
   #hero .hero-img img {
     width: 80%;
+  }
+    .title-light span {
+    font-family: jelly;
+    letter-spacing: -18px;
+    font-size: 8rem;
   }
 }
 
@@ -1455,7 +1467,8 @@ section {
 
 #footer .copyright {
   text-align: center;
-  float: left;
+  /* float: left; */
+  font-size: 1.2rem;
 }
 
 #footer .credits {
@@ -1477,6 +1490,13 @@ section {
     text-align-last: center;
     padding: 3px 0;
   }
+
+  .title-light span {
+    font-family: jelly;
+    letter-spacing: -18px;
+    font-size: 8rem;
+  }
+  
 }
 
 #hero .btn-get-started {
@@ -1580,4 +1600,10 @@ span:hover {
 .outline {
   /* color: white; */
   text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+}
+
+.row {
+  justify-content: space-evenly;
+  font-size: 1.3rem;
+  /* font-family: cursive; */
 }
