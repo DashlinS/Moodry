@@ -71,5 +71,51 @@ section {
     /* opacity: 1; */
     /* transform: translateZ(0); */
     /* margin-top: 20px; */
-    background-color: #21cfff;
+    background-color: #00c8ff00;
+}
+
+.section-title h2 {
+  /* border: 1px solid black; */
+  padding-top: 25px;
+  font-family: jelly;
+  font-size: 4rem;
+  color: orange;
+  font-weight: normal;
+  line-height: normal;
+  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+}
+
+.contact .info i {
+    font-size: 25px;
+    color: white;
+    float: left;
+    width: 44px;
+    height: 44px;
+    background: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.contact .info i:hover {
+  background-color: blue;
+}
+
+.contact .info {
+  border-top: 4px solid orange;
+  border-bottom: 4px solid orange;
+  border-radius: 10px;
+
+}
+
+.contact .php-email-form {
+  border-top: 4px solid orange;
+  border-bottom: 4px solid orange;
+  border-radius: 10px;
+}
+
+.contact .php-email-form button[type="submit"] {
+  background-color:orange;
 }
