@@ -62,7 +62,7 @@
 
 .four-motions {
   background-color:white;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -84,3 +84,19 @@ section{
   background-color:rgba(255, 255, 255, 0);
 }
 
+.happy {
+  background: url(/images/smile.gif) center no-repeat;
+  background-size: contain;
+}
+.sad {
+  background: url(/images/sad.gif) center no-repeat;
+  background-size: contain;
+}
+.mad {
+  background: url(/images/angry.gif) center no-repeat;
+  background-size: contain;
+}
+.okay {
+  background: url(/images/nice.gif) center no-repeat;
+  background-size: contain;
+}
