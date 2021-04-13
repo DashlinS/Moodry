@@ -4,7 +4,7 @@
   background-size: contain;
   background-color: #00C3F7;
   height: 100vh;
-   overflow: scroll;
+  overflow: scroll;
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
