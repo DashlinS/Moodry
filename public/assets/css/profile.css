@@ -1,7 +1,33 @@
 #hero {
-  background-color: #00C3F7;
-  width: 100%;
+  background-color: #00c2f700;
+  width: 85%;
+  height: 1000px;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  border-radius: 0px;
 }
+
+#hero .section-title h2 {
+  /* padding-top: 25px; */
+  font-family: jelly;
+  font-size: 4rem;
+  color: blue;
+  font-weight: normal;
+  line-height: normal;
+  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+}
+
+
+.section-title {
+  /* border: 1px solid black; */
+  margin: 25px 0px;
+  height: 75px;
+  text-align: center;
+  /* padding-bottom: 30px; */
+  /* border: 1px solid black; */
+  height: 100px;
+}
+
 .overallContainer {
   width: 100%;
   /* height: 100vh; */
@@ -34,11 +60,53 @@ body {
   font-family: cursive;
 }
 
-.g-4, .gy-4 {
+.row.gy-4 {
   border: 1px solid black;
-  height: 600px;
+  height: 850px;
+  background-color:white;
+  /* display: flex; */
 }
 
-.col-lg-6 {
-  border: 1px solid red;
+.profileTitle {
+  font-size: 3rem;
+  height: 200px;
+  width: 200px;
+}
+
+.leftHalf, .rightHalf {
+  border: 1px solid black;
+  height: 400px;
+  width: 100%;
+}
+.leftHalf h4, .rightHalf h4, .linkToHelp h4, .rightHalf h3 {
+  text-align: center;
+}
+
+.leftHalf {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.myInfo, .myComments {
+  border: 1px solid black;
+  width: 550px;
+  height: 350px;
+}
+
+.linkToHelp {
+  border: 1px solid black;
+  height: 100px;
+  width: 550px;
+}
+
+[data-aos^=fade][data-aos^=fade].aos-animate {
+  opacity: 1;
+  transform: translateZ(0);
+  margin-top: 150px;
+  /* margin-top: 20px; */
+  background-color: #fff;
+  width: 100%;
+  background-color:rgba(255, 255, 255, 0);
 }

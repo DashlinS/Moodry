@@ -1,5 +1,6 @@
 <%- include('header'); -%>
 <head>
+
   <link rel="stylesheet" href="assets/css/profile.css" />
 </head>
 <header id="header" class="fixed-top d-flex align-items-center">
@@ -41,7 +42,7 @@
         </li>
         <li><a class="nav-link scrollto logout outline" href="/logout">Logout</a></li>
       </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
+      <i class="bi bi-list mobile-nav-toggle outline"></i>
     </nav>
     <!-- .navbar -->
   </div>
@@ -49,9 +50,28 @@
 <!-- End Header -->
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
-  <div class="container">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <!-- <h2>F.A.Q</h2> -->
+      <h2>Profile</h2>
+    </div>
     <div class="row gy-4">
-      <div
+      <div class="leftHalf">
+        <div class="myInfo">
+          <h4>My Info</h4>
+        </div>
+        <!-- <div class="linkToHelp">
+          <h4>Links</h4>
+        </div> -->
+        <div class="myComments">
+          <h4>My Comments</h4>
+        </div>
+      </div>
+      <div class="rightHalf">
+        <h3>Watch Log</h3>
+      </div>
+      <!-- <h2>Profile</h2> -->
+      <!-- <div
         class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center"
       >
         <h1>Better digital experience with Ninestars</h1>
@@ -64,14 +84,15 @@
       </div>
       <div class="col-lg-6 order-1 order-lg-2 hero-img">
         <img src="assets/img/hero-img.svg" class="img-fluid animated" alt="" />
-      </div>
+      </div> -->
+
     </div>
   </div>
 </section>
 <!-- End Hero -->
 
-<main id="main">
-  <!-- ======= About Section ======= -->
+<!-- ======= About Section ======= -->
+<!-- <main id="main">
   <section id="about" class="about">
     <div class="container">
       <div class="row justify-content-between">
@@ -366,5 +387,5 @@
       </div>
     </section> -->
   <!-- End Clients Section -->
-</main>
+<!-- </main>  -->
 <%- include('footer'); -%>
