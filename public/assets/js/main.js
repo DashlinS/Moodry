@@ -274,7 +274,7 @@ function getResponse() {
   let input = document.querySelector('input').value
   console.log(input)
   fetch(
-    "https://www.googleapis.com/youtube/v3/search?key=AIzaSyArYFnbPqIjwBBH3Pp1ff0cosu1CuBQ_T0"
+    "https://www.googleapis.com/youtube/v3/search?"
   )
     .then((res) => res.json())
     .then((data) => {
