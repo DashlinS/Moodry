@@ -4,6 +4,30 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+var trash = document.getElementsByClassName("fa-trash");
+
+//Trash
+
+Array.from(trash).forEach(function (element) {
+  element.addEventListener("click", function () {
+    const name = this.parentNode.parentNode.childNodes[1].innerText;
+    const msg = this.parentNode.parentNode.childNodes[3].innerText;
+    fetch("trash", {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        msg: msg,
+      }),
+    }).then(function (response) {
+      window.location.reload();
+    });
+  });
+});
+
 (function() {
   "use strict";
 
@@ -242,3 +266,33 @@
   });
 
 })()
+
+//YOUTUBE
+document.querySelector('button').addEventListener('click', getResponse)
+
+function getResponse() {
+  let input = document.querySelector('input').value
+  console.log(input)
+  fetch(
+    "https://www.googleapis.com/youtube/v3/search?key=AIzaSyArYFnbPqIjwBBH3Pp1ff0cosu1CuBQ_T0"
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(`${err} Cant find Information`);
+    });
+  }
+
+// function searchByKeyword() {
+//   var results = YouTube.Search.list("id,snippet", {
+//     q: "dogs",
+//     maxResults: 25,
+//   });
+
+//   for (var i in results.items) {
+//     var item = results.items[i];
+//     console.log("[%s] Title: %s", item.id.videoId, item.snippet.title);
+//   }
+// }

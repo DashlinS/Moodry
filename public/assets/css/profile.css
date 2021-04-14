@@ -88,3 +88,49 @@ section{
 .section-title {
   padding-bottom:0px;
 }
+.col-sm-6 {
+  padding: 10px;
+  
+}
+
+.col-sm-6 form {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  /* justify-content: space-evenly; */
+}
+.comment, .col-sm-6 {
+  font-family: 'Varela Round', sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.mainInfo {
+  display: flex;
+  justify-content: space-evenly
+}
+
+.info {
+  border:1px solid black;
+  width: 300px;
+  height:200px;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 1rem;
+}
+
+.info ul {
+  margin: 0;
+  padding: 10px;
+}
+.info ul li {
+  list-style-type: none;
+}
+.profileImage {
+  border:1px solid black;
+  width: 200px;
+  height:200px;
+}
+
+.profileImage img {
+  width: 100%;
+}

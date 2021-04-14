@@ -46,6 +46,18 @@ module.exports = function(app, passport, db) {
           })
         })
     });
+
+    app.post('/moodry', (req, res) => {
+      db.collection('moodry').save(
+        { name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown: 0 },
+        (err, result) => {
+          if (err) return console.log(err);
+          console.log('saved to database');
+          res.redirect('/profile');
+        }
+      );
+    });
+    
     // CONTACT SECTION =========================
     app.get('/contact', function(req, res) {
         db.collection('moodry').find().toArray((err, result) => {
