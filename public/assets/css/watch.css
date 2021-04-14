@@ -38,13 +38,16 @@
   /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
+  margin-top: 15px;
 }
 
 .watch {
   border: 1px solid black;
-  width: 800px;
-  height: 500px;
+  width: 760px;
+  height: 465px;
   background-color:white;
+  padding: 0;
+  margin: 0;
 }
 
 /* .emotion {
