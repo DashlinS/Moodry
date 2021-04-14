@@ -9,7 +9,7 @@
 
 #contact {
   /* width: 100%; */
-  font-family: cursive;
+  font-family: 'Varela Round', sans-serif;
   background: url(/images/childDrawing.png) center;
   background-size: contain;
   background-color: #21cfff;
@@ -36,7 +36,7 @@
 }
 
 #hero .container form input {
-  font-family: cursive;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .g-4, .gy-4 {

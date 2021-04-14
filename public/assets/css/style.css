@@ -1637,7 +1637,7 @@ span:hover {
 }
 
 #hero .landingText {
-  font-family: cursive;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .outline {
@@ -1649,5 +1649,5 @@ span:hover {
 .row {
   justify-content: space-evenly;
   font-size: 1.3rem;
-  /* font-family: cursive; */
+  /* font-family: 'Varela Round', sans-serif; */
 }
