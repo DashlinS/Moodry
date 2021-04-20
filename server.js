@@ -8,11 +8,12 @@ var mongoose = require("mongoose");
 var passport = require("passport");
 var flash = require("connect-flash");
 
+
 var morgan = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var session = require("express-session");
-
+var fetch = require("node-fetch")
 var configDB = require("./config/database.js");
 
 var db;
@@ -23,7 +24,7 @@ mongoose.set("useNewUrlParser", true);
 mongoose.connect(configDB.url, (err, database) => {
   if (err) return console.log(err);
   db = database;
-  require("./app/routes.js")(app, passport, db);
+  require("./app/routes.js")(app, passport, db, fetch);
 }); // connect to our database
 
 require("./config/passport")(passport); // pass passport for configuration

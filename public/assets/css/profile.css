@@ -50,6 +50,9 @@
   background-color: #fff;
   border-top: 4px solid blue;
   border-bottom: 4px solid blue;
+  background: url(/images/pattern.png) center repeat;
+  background-size: contain;
+  background-color:white;
 }
 
 .leftHalf h4, .rightHalf h4, .linkToHelp h4, .rightHalf h3 {
@@ -107,7 +110,14 @@ section{
 
 .mainInfo {
   display: flex;
-  justify-content: space-evenly
+  justify-content: space-evenly;
+  background-color:white;
+}
+
+.myInfo {
+  background: url(/images/pattern.png) center repeat;
+  background-size: contain;
+  background-color:white;
 }
 
 .info {
@@ -125,6 +135,13 @@ section{
 .info ul li {
   list-style-type: none;
 }
+
+.myComments {
+  background: url(/images/pattern.png) center repeat;
+  background-size: contain;
+  background-color:white;
+}
+
 .profileImage {
   border:1px solid black;
   width: 200px;
@@ -132,5 +149,58 @@ section{
 }
 
 .profileImage img {
+  width: 100%;
+}
+
+.tableWrapper{
+  border: 1px solid black;
+  /* width: 70%; */
+  position: relative;
+  margin-top: 1%;
+  height: 50%;
+  /* visibility: hidden; */
+}
+.scrollAssist{
+  overflow: auto;
+  height: 100%;;
+  background-color:white;
+  height: 250px;
+}
+.tableWrapper tr{
+  border-bottom: 1px solid lightgray;
+}
+.tableBody tr{
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid black;
+}
+
+.tableBody {
+  height: 400px;
+}
+
+.tableBody td{
+  width: 100%;
+  text-align: center;
+  height: 10%;
+}
+table{
+  background-color: rgba(255, 255, 255, 0.55);
+  margin-top: 2%;
+}
+table thead th{
+  background-color: white;
+  /* width: 100%; */
+  display: block;
+  color: black;
+}
+
+.headtr{
+  position: absolute;
+  top: 0;
+  left:0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   width: 100%;
 }
