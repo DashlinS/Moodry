@@ -90,29 +90,48 @@ module.exports = function(app, passport, db, fetch) {
       });
   });
   // WATCH SECTION =========================
+  app.get("/tableCreate", isLoggedIn, async function (req, res) {
+    const moodData = req.user.moodData;
+    res.json(moodData);
+    console.log(moodData)
+  });
+  
   app.post("/watch", isLoggedIn, async function (req, res) {
+    //DATE
+    let dateTime = new Date();
+    dateTime = dateTime.toISOString().slice(0, 10);
+
+    //Randomizer for Different Videos
+    let randomVideo = Math.floor(Math.random() * 2) + 1;
+
+    // API LINK AND USER INPUT
     let userInput = req.body.video;
     let apiLink = `https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=strict&q=${userInput}&key=AIzaSyArYFnbPqIjwBBH3Pp1ff0cosu1CuBQ_T0`;
-    console.log(req.body.video);
-    
-    const response = await fetch(apiLink)
-    const data = await response.json()
-    .catch((err) => {
+    // console.log(`This is video data ${req.body.video}`);
+
+    //FETCH ASYNC AWAIT
+    const response = await fetch(apiLink);
+    const data = await response.json().catch((err) => {
       console.log(`${err} Cant find Information`);
     });
+    //MoodData push to array to search through in JS API
+    let moodData = req.user.moodData;
+    const newMood = [dateTime, data.items[randomVideo].snippet.title];
+    moodData.push(newMood);
 
-    let link = data.items[1].id.videoId;
-    var url = `https://www.youtube.com/embed/${link}?enablejsapi=1`;
-    // console.log(data);
-    // console.log(data.items.snippet);
-    // console.log(`this is the link ${link}`);
+    //Link for each VIDEO
+    let link = data.items[randomVideo].id.videoId;
 
-      // .then((res) => res.json())
-      // .then((data) => {
-      // })
-      
+    //saves user session
     const user = await User.findById(req.user._id);
+    user.moodData = moodData;
+
+    //URL
+    var url = `https://www.youtube.com/embed/${link}?enablejsapi=1`;
+    //last video played by user
     user.info.lastVideo = url;
+
+    //SAVE EACH USER AND RENDER WATCH WITH OUR URL CONNECTING WITH THE SRC
     const result = await user
       .save()
       .then((result) => {
@@ -120,7 +139,14 @@ module.exports = function(app, passport, db, fetch) {
       })
       .catch((error) => console.error(error));
   });
+  // console.log(data);
+  // console.log(data.items.snippet);
+  // console.log(`this is the link ${link}`);
 
+  // .then((res) => res.json())
+  // .then((data) => {
+  // })
+  
   app.get("/watch", isLoggedIn, function (req, res) {
     db.collection("moodry")
       .find()
@@ -141,52 +167,13 @@ module.exports = function(app, passport, db, fetch) {
   });
 
   // message board routes ===============================================================
-
-  app.post("/moodry", (req, res) => {
+  app.post("/comments", isLoggedIn, async function (req, res){
     db.collection("moodry").save(
-      { name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown: 0 },
+      {name: req.body.name, msg: req.body.msg},
       (err, result) => {
         if (err) return console.log(err);
         console.log("saved to database");
         res.redirect("/profile");
-      }
-    );
-  });
-
-  app.put("/thumbUp", (req, res) => {
-    db.collection("moodry").findOneAndUpdate(
-      { name: req.body.name, msg: req.body.msg },
-      {
-        $set: {
-          thumbUp: req.body.thumbUp + 1,
-        },
-      },
-      {
-        sort: { _id: -1 },
-        upsert: true,
-      },
-      (err, result) => {
-        if (err) return res.send(err);
-        res.send(result);
-      }
-    );
-  });
-
-  app.put("/thumbDown", (req, res) => {
-    db.collection("moodry").findOneAndUpdate(
-      { name: req.body.name, msg: req.body.msg },
-      {
-        $set: {
-          thumbDown: req.body.thumbDown + 1,
-        },
-      },
-      {
-        sort: { _id: -1 },
-        upsert: true,
-      },
-      (err, result) => {
-        if (err) return res.send(err);
-        res.send(result);
       }
     );
   });

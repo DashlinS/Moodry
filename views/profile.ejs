@@ -83,7 +83,7 @@
           <div class="col-sm-6">
             <!-- <h2></h2> -->
             <% if (user.local.email) { %>
-            <form action="/moodry" method="POST">
+            <form action="/comments" method="POST">
               <!-- <input type="text" placeholder="Place a Comment" name="name"> -->
               <input type="text" placeholder="Place a Comment" name="msg">
               <button type="submit">Submit</button>
@@ -109,23 +109,18 @@
           <h3>Watch Log</h3>
 				<div id="tableWrapper" class="tableWrapper">
 				<div class="scrollAssist">
-					<table class="moodTable">
+					<table class="moodTable" style="width:100%;">
 						<thead>
+              
 							<tr class="headtr">
 								<!-- <th></th> -->
 								<th>Date</th>
 								<th>Mood</th>
-								<th>Video Watched</th>
+								<th>Video</th>
 							</tr>
 						</thead>
 						<tbody class="tableBody">
-							<% for(var i=0; i < moodry.length; i++) {%>
-								<tr>
-									<td><span><%= moodry[i].date %></span></td>
-									<td><span><%= moodry[i].watched %></span></td>
-									<td><span><%= moodry[i].video %></span></td>
-								</tr>
-							<% } %>
+
 						</tbody>
 					</table>
 				</div>
