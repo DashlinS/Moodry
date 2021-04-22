@@ -116,7 +116,11 @@ module.exports = function(app, passport, db, fetch) {
     });
     //MoodData push to array to search through in JS API
     let moodData = req.user.moodData;
-    const newMood = [dateTime, data.items[randomVideo].snippet.title];
+    const newMood = [
+      dateTime,
+      data.items[randomVideo].snippet.title,
+      req.body.moodPicked,
+    ];
     moodData.push(newMood);
 
     //Link for each VIDEO
@@ -138,6 +142,8 @@ module.exports = function(app, passport, db, fetch) {
         res.render("watch.ejs", { url: url });
       })
       .catch((error) => console.error(error));
+
+      console.log(req.body.moodPicked)
   });
   // console.log(data);
   // console.log(data.items.snippet);
