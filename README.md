@@ -8,5 +8,5 @@
 
 &emsp;
 <p align="center">
-<img src="https://github.com/DashlinS/Moodryx/blob/main/public/gif/Moodryxdemo.gif" width="700">
+<img src="https://github.com/DashlinS/Moodry/blob/master/public/gif/MoodryDemo.gif" width="700">
 </p>
