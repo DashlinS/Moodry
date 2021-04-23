@@ -12,7 +12,7 @@ var userSchema = mongoose.Schema({
     lastVideo: String,
     comments: [String],
   },
-    moodData: [ [] ]
+    moodData: []
 });
 
 // generating a hash

@@ -8,9 +8,10 @@ function getMood(event){
   fetch("/watch", {
     method: "POST",
     body: JSON.stringify({ moodPicked: moodPicked }),
-    headers: { "Content-Type": "application/json" },
-  })
-  .then((response) => response.json())
+    headers: { 
+      "Content-Type": "application/json", 
+      "Accept": "application/json" },
+  }).then((response) => response.json());
 }  
 
 

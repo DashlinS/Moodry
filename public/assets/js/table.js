@@ -13,9 +13,9 @@ fetch("/tableCreate")
         let date = document.createElement("td");
         let title = document.createElement("td");
         let mood = document.createElement("td");
-        title.innerText = element[0];
-        date.innerText = element[1];
-        mood.innerText = element[2];
+        date.innerText = element[0];
+        mood.innerText = element[1];
+        title.innerText = element[2];
 
         newRow.appendChild(title);
         newRow.appendChild(mood);
