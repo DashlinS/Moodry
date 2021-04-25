@@ -1,6 +1,7 @@
 const User = require("./models/user");
 
 module.exports = function(app, passport, db, fetch) {
+  var linkTitle;
   // normal routes     ===============================================================
   // show the home page (will also have our login links)
   app.get("/", function (req, res) {
@@ -66,6 +67,94 @@ module.exports = function(app, passport, db, fetch) {
     );
   });
 
+  // GAMES SECTION =========================
+  app.get("/games", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("games.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+
+  // CHAT SECTION =========================
+  app.get("/weechat", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("weechat.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+
+  // LEARNING SECTION =========================
+  app.get("/learning", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("learning.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+
+  // GAME ONE =========================
+  app.get("/gameOne", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("gameOne.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+  // GAME TWO =========================
+  app.get("/gameTwo", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("gameTwo.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+  // GAME THREE =========================
+  app.get("/gameThree", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("gameThree.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+  // GAME FOUR =========================
+  app.get("/gameFour", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("gameFour.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+
   // CONTACT SECTION =========================
   app.get("/contact", function (req, res) {
     db.collection("moodry")
@@ -89,65 +178,72 @@ module.exports = function(app, passport, db, fetch) {
         });
       });
   });
+
   // WATCH SECTION =========================
   app.get("/tableCreate", isLoggedIn, async function (req, res) {
     const moodData = req.user.moodData;
     res.json(moodData);
-    console.log(moodData)
+    // console.log(moodData)
   });
-  
-  app.post("/watch", isLoggedIn, async function (req, res) {
-    //DATE
-    let dateTime = new Date();
-    dateTime = dateTime.toISOString().slice(0, 10);
 
-    let moodPicked = req.body.moodPicked;
-    //Randomizer for Different Videos
-    // let randomVideo = Math.floor(Math.random() * 3) + 1;
+  app.post("/watch", isLoggedIn, async function (req, res) {
+    //MoodPicker
+
+    // Randomizer for Different Videos
+    let randomVideo = Math.floor(Math.random() * 3) + 1;
 
     // API LINK AND USER INPUT
     let userInput = req.body.video;
-    let apiLink = `https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=strict&q=${userInput}&key=AIzaSyCpPiE5R_BFeSzBteeupguxWEtHffDI6YQ`;
-    // AIzaSyArYFnbPqIjwBBH3Pp1ff0cosu1CuBQ_T0;
+    let apiLink = `https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=strict&q=${userInput}&key=AIzaSyArYFnbPqIjwBBH3Pp1ff0cosu1CuBQ_T0`;
+
+    //AIzaSyArYFnbPqIjwBBH3Pp1ff0cosu1CuBQ_T0;
+    //AIzaSyCpPiE5R_BFeSzBteeupguxWEtHffDI6YQ
 
     //FETCH ASYNC AWAIT
-    const response = await fetch(apiLink);
+    let response = await fetch(apiLink);
     var data = await response.json().catch((err) => {
       console.log(`${err} Cant find Information`);
     });
-    //MoodData push to array to search through in JS API
-    let moodData = req.user.moodData;
-    //Link for each VIDEO
-    console.log('This is our link')
-    console.log(data.items[1].id.videoId)
-    
-    let link = data.items[1];
-    let linkName = link.snippet.title;
-    
-    const newMood = [dateTime, moodPicked, data.items[1].id.videoId];
-    if(moodPicked){
-      moodData.push(newMood); 
-    }
-      console.log('MoodData')
-      console.log(moodData)
-    //saves user session
-    const user = await User.findById(req.user._id);
-    user.moodData = moodData;
+
+    var link = data.items[randomVideo];
+    linkTitle = link.snippet.title;
+
     //URL
     var url = `https://www.youtube.com/embed/${link.id.videoId}?enablejsapi=1`;
-    //last video played by user
+
+    var user = await User.findById(req.user._id);
+
+    //saves last video
     user.info.lastVideo = url;
-    console.log('user log')
-    console.log(user)
+
     //SAVE EACH USER AND RENDER WATCH WITH OUR URL CONNECTING WITH THE SRC
-    const result = await user
+    let result = await user
       .save()
       .then((result) => {
         res.render("watch.ejs", { url: url });
       })
       .catch((error) => console.error(error));
+  });
 
-      // console.log(req.body.moodPicked)
+  app.post("/moodPicked", isLoggedIn, async function (req, res) {
+    //DATE
+    let dateTime = new Date();
+    dateTime = dateTime.toISOString().slice(0, 10);
+
+    //mood picker
+    let moodPicked = req.body.moodPicked;
+    let moodData = req.user.moodData;
+    moodData.push([linkTitle, moodPicked, dateTime]);
+    var user = await User.findById(req.user._id);
+    user.moodData = moodData;
+    // user.info.lastVideo = url;
+
+    let result = await user
+      .save()
+      .then((result) => {
+        res.json("success");
+      })
+      .catch((error) => console.error(error));
   });
 
   app.get("/watch", isLoggedIn, function (req, res) {
@@ -158,7 +254,9 @@ module.exports = function(app, passport, db, fetch) {
         res.render("watch.ejs", {
           user: req.user,
           moodry: result,
-          url: req.user.info.lastVideo,
+          url:
+            req.user.info.lastVideo ||
+            `https://www.youtube.com/embed/gghDRJVxFxU?enablejsapi=1`,
         });
       });
   });
@@ -170,9 +268,9 @@ module.exports = function(app, passport, db, fetch) {
   });
 
   // message board routes ===============================================================
-  app.post("/comments", isLoggedIn, async function (req, res){
+  app.post("/comments", isLoggedIn, async function (req, res) {
     db.collection("moodry").save(
-      {name: req.body.name, msg: req.body.msg},
+      { name: req.body.name, msg: req.body.msg },
       (err, result) => {
         if (err) return console.log(err);
         console.log("saved to database");
