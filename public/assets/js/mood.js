@@ -13,6 +13,7 @@ function getMood(event){
       "Content-Type": "application/json", 
       "Accept": "application/json" },
   }).then((response) => response.json());
+  
 }  
 
 

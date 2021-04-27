@@ -54,8 +54,10 @@
           <div class="mainInfo">
             <div class="info">
               <ul>
-                <li>Your Name:</li>
-                <li>Daughter/Son Name:</li>
+                <li>Parent Name:</li>
+                <li>Name:</li>
+                <li>Age:</li>
+                <li>Grade:</li>
                 <li>Birthday:</li>
                 <li>Favorite Shows:</li>
               </ul>
@@ -69,7 +71,7 @@
           <h4>Links</h4>
         </div> -->
         <div class="myComments">
-          <h4>My Comments</h4>
+          <h4>Notes</h4>
           <div class="col-sm-6">
             <!-- <h2></h2> -->
             <% if (user.local.email) { %>
@@ -117,8 +119,69 @@
           </div>
         </div>
       </div>
+      <div class="watchLog">
+        <h3>Messages Sent</h3>
+        <div id="tableWrapper" class="tableWrapper">
+          <div class="scrollAssist">
+            <table class="moodTable" style="width:100%;">
+              <thead>
+                <tr class="headtr">
+                  <!-- <th></th> -->
+                  <th>Date</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody class="tableBody">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+        <div class="games">
+          <h3>Games Played</h3>
+          <div id="tableWrapper" class="tableWrapper">
+            <div class="scrollAssist">
+              <table class="moodTable" style="width:100%;">
+                <thead>
+  
+                  <tr class="headtr">
+                    <!-- <th></th> -->
+                    <th>Date</th>
+                    <th>Played</th>
+                    <th>Total Visited</th>
+                  </tr>
+                </thead>
+                <tbody class="tableBody">
+  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="games">
+          <h3>Learning Clicked</h3>
+          <div id="tableWrapper" class="tableWrapper">
+            <div class="scrollAssist">
+              <table class="moodTable" style="width:100%;">
+                <thead>
+  
+                  <tr class="headtr">
+                    <!-- <th></th> -->
+                    <th>Date</th>
+                    <th>Played</th>
+                    <th>Total Visited</th>
+                  </tr>
+                </thead>
+                <tbody class="tableBody">
+  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
-</section>
 <script src="assets/js/table.js"></script>
 <%- include('footer'); -%>

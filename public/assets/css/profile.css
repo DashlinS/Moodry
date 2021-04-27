@@ -55,7 +55,7 @@
   background-color:white;
 }
 
-.leftHalf h4, .rightHalf h4, .linkToHelp h4, .rightHalf h3 {
+.leftHalf h4, .rightHalf h4, .linkToHelp h4, .rightHalf h3, .watchLog h3 {
   text-align: center;
 }
 
@@ -184,7 +184,7 @@ section{
   width: 100%;
   text-align: center;
   height: 10%;
-  font-size: .8rem;
+  font-size: 1.2rem;
   font-family: 'Varela Round', sans-serif;
 }
 table{
@@ -196,6 +196,8 @@ table thead th{
   /* width: 100%; */
   display: block;
   color: black;
+  font-size: 1.4rem;
+
 }
 
 .headtr{
@@ -206,4 +208,20 @@ table thead th{
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+}
+
+.games {
+  width: 45%;
+  height: 355px;
+  border-radius: 15px;
+  background-color: #fff;
+  border-top: 4px solid blue;
+  border-bottom: 4px solid blue;
+  background: url(/images/pattern.png) center repeat;
+  background-size: contain;
+  background-color:white;
+}
+
+.games h3{
+  text-align: center;
 }
