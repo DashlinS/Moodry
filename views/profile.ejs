@@ -1,21 +1,19 @@
 <%- include('header'); -%>
-<head>
 
+<head>
   <link rel="stylesheet" href="assets/css/profile.css" />
 </head>
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex align-items-center justify-content-between">
     <div class="logo">
       <h1 class="text-light">
-        <a href="/index"
-          ><span>
+        <a href="/index"><span>
             <span class="purple">M</span>
             <span class="blue">oo</span>
             <span class="darkgreen">d</span>
             <span class="yellow">r</span>
             <span class="orange">y</span>
-          </span></a
-        >
+          </span></a>
       </h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -25,21 +23,15 @@
       <ul>
         <!-- <li><a class="nav-link scrollto homeStyle" href="/index">Home</a></li> -->
         <li>
-          <a class="nav-link scrollto active myProfile outline" href="/profile"
-            >Profile</a
-          >
+          <a class="nav-link scrollto active myProfile outline" href="/profile">Profile</a>
         </li>
-        <li><a class="nav-link scrollto watchNow outline" href="/watch">Watch</a></li>
+        <li><a class="nav-link scrollto watchNow outline" href="/watch">Kids</a></li>
         <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
         <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
         <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
-        <li>
-          <a class="nav-link scrollto aboutUs outline" href="/aboutUser">About Us</a>
-        </li>
-        <li>
-          <a class="nav-link scrollto contactUs outline" href="/contactUser">Contact</a>
-        </li>
+        <li><a class="nav-link scrollto aboutUs outline" href="/aboutUser">About Us</a></li>
+        <li><a class="nav-link scrollto contactUs outline" href="/contactUser">Contact</a></li>
         <li><a class="nav-link scrollto logout outline" href="/logout">Logout</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle outline"></i>
@@ -61,7 +53,7 @@
           <h4>My Info</h4>
           <div class="mainInfo">
             <div class="info">
-               <ul>
+              <ul>
                 <li>Your Name:</li>
                 <li>Daughter/Son Name:</li>
                 <li>Birthday:</li>
@@ -92,11 +84,11 @@
             <!-- <h2>My List</h2> -->
             <ol class="comments">
               <% for(var i=0; i<moodry.length; i++) {%>
-                <li class="comment">
-                  <!-- <span><%= moodry[i].name %></span> -->
-                  <span><%= moodry[i].msg %></span>
-                  <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-                </li>
+              <li class="comment">
+                <!-- <span><%= moodry[i].name %></span> -->
+                <span><%= moodry[i].msg %></span>
+                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+              </li>
               <% } %>
             </ol>
           </div>
@@ -105,24 +97,24 @@
       <div class="rightHalf">
         <div class="watchLog">
           <h3>Watch Log</h3>
-				<div id="tableWrapper" class="tableWrapper">
-				<div class="scrollAssist">
-					<table class="moodTable" style="width:100%;">
-						<thead>
-              
-							<tr class="headtr">
-								<!-- <th></th> -->
-								<th>Date</th>
-								<th>Mood</th>
-								<th>Video</th>
-							</tr>
-						</thead>
-						<tbody class="tableBody">
+          <div id="tableWrapper" class="tableWrapper">
+            <div class="scrollAssist">
+              <table class="moodTable" style="width:100%;">
+                <thead>
 
-						</tbody>
-					</table>
-				</div>
-			</div>
+                  <tr class="headtr">
+                    <!-- <th></th> -->
+                    <th>Date</th>
+                    <th>Mood</th>
+                    <th>Video</th>
+                  </tr>
+                </thead>
+                <tbody class="tableBody">
+
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>

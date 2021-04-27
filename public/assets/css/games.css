@@ -1,0 +1,137 @@
+#profile-hero {
+  background: url(/images/childDrawing.png) center;
+  background-size: contain;
+  background-color: #00C3F7;
+  height: 100vh;
+  overflow:scroll;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+#profile-hero .section-title h2 {
+  padding-top: 25px;
+  font-family: jelly;
+  font-size: 4rem;
+  color: #a800ff;
+  font-weight: normal;
+  line-height: normal;
+  text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+}
+
+#header {
+  background-color: #84E2FB;
+}
+
+.col-lg-6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 
+#hero h2 {
+  color: rgb(255, 249, 249);
+  font-size: 2rem;
+} */
+
+.leftHalf, .rightHalf {
+  height: 300px;
+  width: 100%;
+  /* border: 1px solid black; */
+}
+
+.leftHalf, .rightHalf {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border:3px solid black;
+}
+
+
+
+.leftHalf h4, .rightHalf h4, .linkToHelp h4, .rightHalf h3 {
+  text-align: center;
+}
+
+
+[data-aos^=fade][data-aos^=fade].aos-animate {
+  opacity: 1;
+  transform: translateZ(0);
+  margin-top: 70px;
+  background-color: #fff;
+  width: 100%;
+  background-color:rgba(255, 255, 255, 0);
+}
+
+section{
+  padding: 0px;
+}
+
+.section-title {
+  padding-bottom: 0px;
+}
+.col-sm-6 {
+  padding: 10px;
+  
+}
+
+.col-sm-6 form {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  /* justify-content: space-evenly; */
+}
+.comment, .col-sm-6 {
+  font-family: 'Varela Round', sans-serif;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.mainInfo {
+  display: flex;
+  justify-content: space-evenly;
+  background-color:white;
+}
+
+.myInfo {
+  background: url(/images/pattern.png) center repeat;
+  background-size: contain;
+  background-color:white;
+}
+
+.info {
+  border:1px solid black;
+  width: 300px;
+  height:200px;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 1rem;
+}
+
+.info ul {
+  margin: 0;
+  padding: 10px;
+}
+.info ul li {
+  list-style-type: none;
+}
+
+.gameOne{
+  /* background-color: white; */
+  height: 500px;
+  width: 800px;
+  overflow: hidden;
+}
+
+#game-iframe {
+  /* border: 4px solid red; */
+  overflow: hidden;
+  height: 500px;
+  width: 800px;
+}
+
+iframe {
+  border-top: 5px solid #a800ff;
+  border-bottom: 5px solid #a800ff;
+  background-color: #fff;
+  border-radius: 15px;
+}
+

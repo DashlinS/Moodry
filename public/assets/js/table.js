@@ -8,7 +8,6 @@ fetch("/tableCreate")
       let moodTable = document.querySelector(".mood");
       data.forEach((element) => {
         let tableBody = document.querySelector(".tableBody");
-
         let newRow = document.createElement("tr");
         let date = document.createElement("td");
         let title = document.createElement("td");

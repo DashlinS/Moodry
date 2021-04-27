@@ -1,4 +1,5 @@
 <%- include('header'); -%>
+
 <head>
   <link rel="stylesheet" href="assets/css/watch.css" />
 </head>
@@ -6,15 +7,13 @@
   <div class="container d-flex align-items-center justify-content-between">
     <div class="logo">
       <h1 class="text-light">
-        <a href="/index"
-          ><span>
+        <a href="/index"><span>
             <span class="purple">M</span>
             <span class="blue">oo</span>
             <span class="darkgreen">d</span>
             <span class="yellow">r</span>
             <span class="orange">y</span>
-          </span></a
-        >
+          </span></a>
       </h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -23,30 +22,35 @@
     <nav id="navbar" class="navbar">
       <ul>
         <!-- <li><a class="nav-link scrollto homeStyle" href="/index">Home</a></li> -->
+        <!-- <li>
+          <a class="nav-link scrollto myProfile outline" href="/profile">Profile</a>
+        </li> -->
         <li>
-          <a class="nav-link scrollto myProfile outline" href="/profile"
-            >Profile</a
-          >
+          <a class="nav-link scrollto active watchNow outline" href="/watch">Watch</a>
         </li>
         <li>
-          <a class="nav-link scrollto active watchNow outline" href="/watch"
-            >Watch</a
-          >
+          <a class="nav-link scrollto homeStyle outline" href="/games">Games</a>
+        </li>
+        <li>
+          <a class="nav-link scrollto aboutUs outline" href="/weechat">WeeChat</a>
+        </li>
+        <li>
+          <a class="nav-link scrollto contactUs outline" href="/learning">Learning</a>
         </li>
         <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
         <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
         <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
-        <li>
+        <!-- <li>
           <a class="nav-link scrollto aboutUs outline" href="/aboutUser"
             >About Us</a
           >
-        </li>
-        <li>
+        </li> -->
+        <!-- <li>
           <a class="nav-link scrollto contactUs outline" href="/contactUser"
             >Contact</a
           >
-        </li>
+        </li> -->
         <li>
           <a class="nav-link scrollto logout outline" href="/logout">Logout</a>
         </li>
@@ -65,37 +69,42 @@
     <div class="section-title">
       <h2>Watch</h2>
     </div>
+    <form action="/watch" method="POST">
+      <input type="text" value="" name="video">
+      <button type="submit">Search</button>
+    </form>
     <div class="row gy-4">
       <!-- Top emotions -->
       <div class="topMotion">
-        <a href="#"><div id="happy" class="four-motions happy" data-value="happy"></div></a>
-        <a href="#"><div class="four-motions sad" data-value="sad"></div></a>
+        <a href="#">
+          <div id="happy" class="four-motions happy" data-value="&#128515;"></div>
+        </a>
+        <a href="#">
+          <div class="four-motions sad" data-value="&#128577;"></div>
+        </a>
       </div>
       <!-- Media watch -->
       <div class="watch">
-        <iframe
-          id="existing-iframe-example"
-          width="100%"
-          height="100%"
-          frameborder="0"
-          src= <%=url%>
-        ></iframe>
+        <iframe id="existing-iframe-example" width="100%" height="100%" frameborder="0" src=<%=url%>></iframe>
         <!-- src="https://www.youtube.com/embed/1HygThMLzGs?enablejsapi=1" -->
-        <form action="/watch" method="POST">
-          <input type="text" value="" name="video">
-          <button type="submit">find</button>
-        </form>
       </div>
       <!-- Bottom motions -->
       <div class="bottomMotion">
-        <a href="#"><div class="four-motions okay" data-value="okay"></div></a>
-        <a href="#"><div class="four-motions mad" data-value="mad"></div></a>
+        <a href="#">
+          <div class="four-motions okay" data-value="&#128533;"></div>
+        </a>
+        <a href="#">
+          <div class="four-motions mad" data-value="&#x1F621;"></div>
+        </a>
       </div>
       <!-- <div class="emotion">
       </div> -->
     </div>
   </div>
 </section>
+<!-- <section>
+  <iframe width="100%" height="100%" src="https://www.addictinggames.com/embed/html5-games/22886" scrolling="no"></iframe>
+</section> -->
 <!-- End Watch -->
 <script src="assets/js/mood.js"></script>
 
