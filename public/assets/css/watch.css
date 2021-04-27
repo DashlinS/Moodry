@@ -50,13 +50,7 @@
   margin: 0;
 }
 
-/* .emotion {
-  width: 500px;
-  display: flex;
-} */
-
 .topMotion, .bottomMotion {
-  /* border:1px solid red; */
   width: 225px;
   display: flex;
   justify-content: space-around;
@@ -65,11 +59,11 @@
 
 .four-motions {
   background-color:white;
-  /* border: 1px solid black; */
   height: 200px;
   width: 200px;
   border-radius: 50%;
 }
+
 section{
   padding: 0px;
 }
@@ -84,7 +78,7 @@ form {
 }
 form input {
   margin: 0px 10px;
-  border: none;
+  border: 4px solid #0065fc;
   border-radius: 10px;
   width: 300px;
   font-size: 1.2rem;
@@ -92,8 +86,10 @@ form input {
 
 form button {
   border: none; 
+  font-family: jelly;
   font-size:1.2rem;
   border-radius: 10px;
+  border: 4px solid #0065fc;
 }
 
 form button:focus {

@@ -1,8 +1,6 @@
 <%- include('header'); -%>
-
 <head>
-
-  <link rel="stylesheet" href="assets/css/games.css" />
+  <link rel="stylesheet" href="assets/css/learning.css" />
 </head>
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex align-items-center justify-content-between">
@@ -30,10 +28,10 @@
           <a class="nav-link scrollto homeStyle outline" href="/games">Games</a>
         </li>
         <li>
-          <a class="nav-link scrollto contactUs outline" href="/learning">Learning</a>
+          <a class="nav-link scrollto aboutUs outline" href="/weechat">WeeChat</a>
         </li>
         <li>
-          <a class="nav-link scrollto aboutUs outline" href="/weechat">WeeChat</a>
+          <a class="nav-link scrollto contactUs outline" href="/learning">Learning</a>
         </li>
         <li><a class="nav-link scrollto logout outline" href="/logout">Logout</a></li>
       </ul>
@@ -48,35 +46,15 @@
   <div class="container" data-aos="fade-up">
     <div class="section-title">
       <!-- <h2>F.A.Q</h2> -->
-      <h2>Games</h2>
+      <h2>Geometry Tower</h2>
     </div>
     <div class="row gy-4">
-      <div class="leftHalf">
-        <div>
-          <h4>Geometry Tower</h4>
-          <a href="/gameOne" class="games gameOne" data-value="Geometry Tower"><img src="/images/games/geometry-tower.jpg" alt=""></a>
-        </div>
-        <div>
-          <h4>Smarty Bubbles</h4>
-          <a href="/gameTwo" class="games gameTwo" data-value="Smarty Bubbles"><img src="/images/games/smartybubbles.jpg" alt=""></a>
-        </div>
-        <div>
-          <h4>Stack Colors</h4>
-          <a href="/gameThree" class="games gameThree" data-value="Stack Colors"><img src="/images/games/stackColors.png" alt=""></a>
-        </div> 
-        <div>
-          <h4>Beat Hop</h4>
-          <a href="/gameFour" class="games gameFour" data-value="Beat Hop"><img src="/images/games/beathop.png" alt=""></a>
-        </div>
-        
+      <div class="leftHalf gameOne">
+        <iframe src="https://learningapps.org/watch?v=pagh8fp8k21" style="width:100%;height:500px" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
       </div>
-      <!-- <div class="rightHalf">
-        
-      </div> -->
     </div>
     </div>
   </div>
 </section>
-<!-- <script src="assets/js/table.js"></script> -->
-<script src="assets/js/games.js"></script>
+<script src="assets/js/table.js"></script>
 <%- include('footer'); -%>

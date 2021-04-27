@@ -32,16 +32,16 @@ module.exports = function(app, passport, db, fetch) {
         });
       });
   });
- app.post("/onboard", (req, res) => {
-   db.collection("moodry").save(
-     { name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown: 0 },
-     (err, result) => {
-       if (err) return console.log(err);
-       console.log("saved to database");
-       res.redirect("/onboard");
-     }
-   );
- });
+  app.post("/onboard", (req, res) => {
+    db.collection("moodry").save(
+      { name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown: 0 },
+      (err, result) => {
+        if (err) return console.log(err);
+        console.log("saved to database");
+        res.redirect("/onboard");
+      }
+    );
+  });
 
   // ABOUT SECTION =========================
   app.get("/about", function (req, res) {
@@ -102,33 +102,6 @@ module.exports = function(app, passport, db, fetch) {
         });
       });
   });
-
-  // CHAT SECTION =========================
-  app.get("/weechat", isLoggedIn, function (req, res) {
-    db.collection("moodry")
-      .find()
-      .toArray((err, result) => {
-        if (err) return console.log(err);
-        res.render("weechat.ejs", {
-          user: req.user,
-          moodry: result,
-        });
-      });
-  });
-
-  // LEARNING SECTION =========================
-  app.get("/learning", isLoggedIn, function (req, res) {
-    db.collection("moodry")
-      .find()
-      .toArray((err, result) => {
-        if (err) return console.log(err);
-        res.render("learning.ejs", {
-          user: req.user,
-          moodry: result,
-        });
-      });
-  });
-
   // GAME ONE =========================
   app.get("/gameOne", isLoggedIn, function (req, res) {
     db.collection("moodry")
@@ -178,6 +151,67 @@ module.exports = function(app, passport, db, fetch) {
       });
   });
 
+  // LEARNING SECTION =========================
+  app.get("/learning", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("learning.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+  // LEARN ONE =========================
+  app.get("/learnOne", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("learnOne.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+  // LEARN TWO =========================
+  app.get("/learnTwo", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("learnTwo.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+  // LEARN THREE =========================
+  app.get("/learnThree", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("learnThree.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
+
+  // CHAT SECTION =========================
+  app.get("/weechat", isLoggedIn, function (req, res) {
+    db.collection("moodry")
+      .find()
+      .toArray((err, result) => {
+        if (err) return console.log(err);
+        res.render("weechat.ejs", {
+          user: req.user,
+          moodry: result,
+        });
+      });
+  });
   // CONTACT SECTION =========================
   app.get("/contact", function (req, res) {
     db.collection("moodry")
@@ -250,8 +284,13 @@ module.exports = function(app, passport, db, fetch) {
 
   app.post("/moodPicked", isLoggedIn, async function (req, res) {
     //DATE
-    let dateTime = new Date();
-    dateTime = dateTime.toISOString().slice(0, 10);
+    var dateTime = new Date();
+    dateTime =
+      ("0" + (dateTime.getMonth() + 1)).slice(-2) +
+      "/" +
+      ("0" + dateTime.getDate()).slice(-2) +
+      "/" +
+      dateTime.getFullYear()
 
     //mood picker
     let moodPicked = req.body.moodPicked;

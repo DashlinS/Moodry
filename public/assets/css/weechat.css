@@ -16,7 +16,9 @@
   font-weight: normal;
   line-height: normal;
   text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
+
 }
+
 
 #header {
   background-color: #84E2FB;
@@ -34,34 +36,7 @@
   font-size: 2rem;
 } */
 
-.leftHalf,
-.rightHalf {
-  height: 320px;
-  width: 100%;
-  border: 1px solid black;
 
-}
-
-.rightHalf {
-  height: 360px;
-  display: flex;
-  justify-content: center;
-}
-
-
-.leftHalf h4,
-.rightHalf h4,
-.linkToHelp h4,
-.rightHalf h3 {
-  text-align: center;
-}
-
-.leftHalf {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
 
 
 [data-aos^=fade][data-aos^=fade].aos-animate {
@@ -127,4 +102,87 @@ section {
 
 .info ul li {
   list-style-type: none;
+}
+
+.leftHalf,
+.rightHalf {
+  height: 700px;
+  width: 100%;
+  /* border: 2px solid black; */
+  display: flex;
+
+}
+
+.leftHalf h4,
+.rightHalf h4,
+.linkToHelp h4,
+.rightHalf h3 {
+  text-align: center;
+}
+
+.leftHalf {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-items: flex-start;
+}
+
+.messaging, .feed {
+  border: 2px solid black;
+  width: 500px;
+  height: 100%;
+  background: url(/images/pattern.png) center repeat;
+  background-size: contain;
+  background-color:white;
+  border-top: 5px solid rgb(236, 236, 46);
+  border-bottom: 5px solid rgb(236, 236, 46);;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.messaging {
+  height: 600px;
+  
+}
+
+.feed {
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.innerFeed{
+  border: 2px solid black;
+  border-radius: 15px;
+  height: 600px;
+  width: 85%;
+  /* height: 100%; */
+  background-color:white;
+
+} 
+.innerMessage {
+  border: 2px solid black;
+  background-color:white;
+  border-radius: 15px;
+  height: 450px;
+  width: 450px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 20px;
+  width: 120px;
+  height: 50px;
+
 }
