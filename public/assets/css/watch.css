@@ -1,5 +1,5 @@
-#watch-hero {
-  font-family: 'Varela Round', sans-serif;
+.watch-hero {
+  /* font-family: 'Varela Round', sans-serif; */
   background: url(/images/childDrawing.png) center;
   background-size: contain;
   background-color: #00C3F7;
@@ -9,14 +9,12 @@
 }
 
 #watch-hero .section-title h2 {
-  padding-top: 25px;
   font-family: jelly;
   font-size: 4rem;
   color: green;
   font-weight: normal;
   line-height: normal;
   text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
-  margin-top:50px;
 }
 
 #header {
@@ -63,14 +61,14 @@
   width: 200px;
   border-radius: 50%;
 }
-
+/* 
 section{
   padding: 0px;
 }
 
 .section-title {
   padding-bottom:0px;
-}
+} */
 form {
   display: flex;
   justify-content: center;
@@ -102,7 +100,7 @@ form input:focus{
 [data-aos^=fade][data-aos^=fade].aos-animate {
   opacity: 1;
   transform: translateZ(0);
-  margin-top: 70px;
+  margin-top: 25px;
   background-color: #fff;
   width: 100%;
   background-color:rgba(255, 255, 255, 0);

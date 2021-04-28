@@ -89,7 +89,41 @@ section{
 }
 
 .section-title {
+  /* border: 2px solid red; */
   padding-bottom:0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 10px;
+}
+
+.section-title-div {
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 10px;
+  background-color: #00c2f7c4;
+  position: absolute;
+  right: 20px;
+  height: 100px;
+  width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.section-title-div h3 {
+  color:white;
+  text-shadow: -0.5px -0.5px 0 #000,
+  0.5px -0.5px 0 #000,
+  -0.5px 0.5px 0 #000,
+  0.5px 0.5px 0 #000;
+}
+
+.section-title img {
+  width: 90px;
+  height: 90px;
+  border: 1px solid black;
+  border-radius: 50%;
 }
 .col-sm-6 {
   padding: 10px;
@@ -123,9 +157,8 @@ section{
 .info {
   border:1px solid black;
   width: 300px;
-  height:200px;
-  font-family: 'Varela Round', sans-serif;
-  font-size: 1rem;
+  height:220px;
+ 
 }
 
 .info ul {
@@ -134,6 +167,9 @@ section{
 }
 .info ul li {
   list-style-type: none;
+   font-family: 'Varela Round',
+   sans-serif;
+   font-size: 1.11rem;
 }
 
 .myComments {
@@ -145,7 +181,7 @@ section{
 .profileImage {
   border:1px solid black;
   width: 200px;
-  height:200px;
+  height:220px;
 }
 
 .profileImage img {

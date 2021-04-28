@@ -64,10 +64,16 @@
 <!-- ======= Watch Section ======= -->
 <!-- d-flex align-items-center -->
 <!--put inside class to center on any device width-->
-<section id="watch-hero" class="">
+<section id="watch-hero" class="watch-hero">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
       <h2>Watch</h2>
+       <div class="section-title-div">
+          <h3><%= userInfo.username %></h3>
+        <div>
+          <img src="/images/profile-pics/<%=userInfo.profileImage%>.png" alt="userImage">
+        </div>
+      </div>
     </div>
     <form action="/watch" method="POST">
       <input type="text" value="" name="video">

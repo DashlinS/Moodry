@@ -7,6 +7,7 @@ var userSchema = mongoose.Schema({
   local: {
     email: String,
     password: String,
+    onBoardingComplete: Boolean,
   },
   info: {
     lastVideo: String,
@@ -14,7 +15,16 @@ var userSchema = mongoose.Schema({
     comments: [String],
   },
     moodData: [],
-    videoList: []
+    videoList: [],
+  userInfo: {
+    profileImage: String,
+    myName: String,
+    username: String,
+    age: Number,
+    birthday: Date,
+    grade: String,
+    favorite: String,
+  }
 });
 
 // generating a hash

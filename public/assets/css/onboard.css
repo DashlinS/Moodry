@@ -150,4 +150,7 @@ input[type=radio] {
 #submit:focus {
   outline: none;
 }
-  
+
+button span {
+  display: none;
+}

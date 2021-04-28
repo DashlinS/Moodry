@@ -17,30 +17,46 @@ module.exports = function(app, passport, db, fetch) {
         res.render("index.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
   // ONBOARD SECTION =========================
-  app.get("/onboard", function (req, res) {
-    db.collection("moodry")
-      .find()
-      .toArray((err, result) => {
-        if (err) return console.log(err);
-        res.render("onboard.ejs", {
-          user: req.user,
-          moodry: result,
+  app.get("/onboard", isLoggedIn, function (req, res) {
+    const onBoarded = req.user.local.onBoardingComplete
+    if (onBoarded){
+      res.redirect("/profile")
+    }
+    else {
+      db.collection("moodry")
+        .find()
+        .toArray((err, result) => {
+          if (err) return console.log(err);
+          res.render("onboard.ejs", {
+            user: req.user,
+            moodry: result,
+            userInfo: req.user.userInfo
+          });
         });
-      });
+    }
   });
-  app.post("/onboard", (req, res) => {
-    db.collection("moodry").save(
-      { name: req.body.name, msg: req.body.msg, thumbUp: 0, thumbDown: 0 },
-      (err, result) => {
-        if (err) return console.log(err);
-        console.log("saved to database");
-        res.redirect("/onboard");
-      }
-    );
+  app.post("/onboard", isLoggedIn, async function (req, res) {
+    let user = await User.findById(req.user._id)
+    const userInfo = req.body.userInfo
+    user.userInfo = userInfo
+    // let image = user.userInfo.profileImage;
+    // console.log(image, 'My image')
+
+    //Wont send to onboarding page if true.
+    user.local.onBoardingComplete = true
+    console.log(userInfo.profileImage)
+    const result = await user.save()
+    .then(result => {
+      res.redirect('/profile')
+    })
+    .catch(err => {
+      console.log(err)
+    })
   });
 
   // ABOUT SECTION =========================
@@ -52,9 +68,11 @@ module.exports = function(app, passport, db, fetch) {
         res.render("about.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo,
         });
       });
   });
+
   app.get("/aboutUser", isLoggedIn, function (req, res) {
     db.collection("moodry")
       .find()
@@ -63,8 +81,9 @@ module.exports = function(app, passport, db, fetch) {
         res.render("aboutUser.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo,
         });
-      });
+      }); 
   });
   // PROFILE SECTION =========================
   app.get("/profile", isLoggedIn, function (req, res) {
@@ -75,9 +94,11 @@ module.exports = function(app, passport, db, fetch) {
         res.render("profile.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
+
 
   app.post("/moodry", (req, res) => {
     db.collection("moodry").save(
@@ -99,6 +120,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("games.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -111,6 +133,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("gameOne.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -123,6 +146,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("gameTwo.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -135,6 +159,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("gameThree.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -147,6 +172,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("gameFour.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -160,6 +186,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("learning.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -172,6 +199,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("learnOne.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -184,6 +212,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("learnTwo.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -196,6 +225,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("learnThree.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -209,6 +239,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("weechat.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -221,6 +252,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("contact.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -232,6 +264,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("contactUser.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo
         });
       });
   });
@@ -316,6 +349,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("watch.ejs", {
           user: req.user,
           moodry: result,
+          userInfo: req.user.userInfo,
           url:
             req.user.info.lastVideo ||
             `https://www.youtube.com/embed/gghDRJVxFxU?enablejsapi=1`,
@@ -382,7 +416,7 @@ module.exports = function(app, passport, db, fetch) {
   app.post(
     "/signup",
     passport.authenticate("local-signup", {
-      successRedirect: "/profile", // redirect to the secure profile section
+      successRedirect: "/onboard", // redirect to the secure profile section
       failureRedirect: "/signup", // redirect back to the signup page if there is an error
       failureFlash: true, // allow flash moodry
     })
