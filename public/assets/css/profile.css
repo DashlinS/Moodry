@@ -104,9 +104,7 @@ section{
 }
 
 .section-title-div {
-  /* border: 1px solid rgba(255, 255, 255, 0.52); */
   border-radius: 10px;
-  /* background-color: #00c2f7c4; */
   position: absolute;
   right: 20px;
   height: 100px;
@@ -176,8 +174,8 @@ section{
 }
 .info ul li {
   list-style-type: none;
-   font-family: 'Original Surfer';
-   font-size: 1.05rem;
+  font-family: 'Original Surfer';
+  font-size: 1.05rem;
 }
 
 .myComments {

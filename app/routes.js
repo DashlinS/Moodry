@@ -279,6 +279,10 @@ module.exports = function(app, passport, db, fetch) {
      const learnData = req.user.learnData;
      res.json(learnData)
    });
+   app.get("/doActivity", isLoggedIn, async function (req, res) {
+     const activityData = req.user.activityData;
+     res.json(activityData)
+   });
 
    //GAME DATA POST
    app.post("/gameCreate", isLoggedIn, async function (req, res) {
@@ -334,6 +338,32 @@ module.exports = function(app, passport, db, fetch) {
        })
        .catch((error) => console.error(error));
    });
+   //ACTIVITY DATA POST
+   app.post("/doActivity", isLoggedIn, async function (req, res) {
+     //DATE
+     var dateTime = new Date();
+     dateTime =
+       ("0" + (dateTime.getMonth() + 1)).slice(-2) +
+       "/" +
+       ("0" + dateTime.getDate()).slice(-2) +
+       "/" +
+       dateTime.getFullYear();
+
+     let activityData = req.user.activityData;
+     let activity = req.body.activity;
+     activityData.push([activity, dateTime]);
+     console.log(activityData);
+     var user = await User.findById(req.user._id);
+     user.activityData = activityData;
+     // user.info.lastVideo = url;
+
+     let result = await user
+       .save()
+       .then((result) => {
+         res.json("success");
+       })
+       .catch((error) => console.error(error));
+   });
   
 
   //API AND POST
@@ -343,7 +373,7 @@ module.exports = function(app, passport, db, fetch) {
 
     // API LINK AND USER INPUT
     let userInput = req.body.video;
-    let apiLink = `https://www.googleapis.com/youtube/v3/search?part=snippet&enablejsapi=1&safeSearch=strict&q=${userInput}&key=AIzaSyArYFnbPqIjwBBH3Pp1ff0cosu1CuBQ_T0`;
+    let apiLink = `https://www.googleapis.com/youtube/v3/search?part=snippet&enablejsapi=1&safeSearch=strict&q=${userInput}&key=AIzaSyCpPiE5R_BFeSzBteeupguxWEtHffDI6YQ`;
 
     //AIzaSyArYFnbPqIjwBBH3Pp1ff0cosu1CuBQ_T0;
     //AIzaSyCpPiE5R_BFeSzBteeupguxWEtHffDI6YQ

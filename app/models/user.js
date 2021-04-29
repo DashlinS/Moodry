@@ -17,6 +17,7 @@ var userSchema = mongoose.Schema({
   moodData: [[]],
   gamesData: [[]],
   learnData: [[]],
+  activityData: [[]],
   userInfo: {
     profileImage: String,
     myName: String,

@@ -122,6 +122,8 @@ ul, li {
 .profilePicture img {
   width: 90px;
   height: 90px;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .profilePicture input {
@@ -137,10 +139,16 @@ input[type=radio] {
   margin-bottom: 5px;
 }
 
-#submit {
+a#submit {
   border-radius: 10px;
-  border: none;
+  display: block;
+  border: 1px solid black;;
   margin-top: 5px;
+  height: 100px;
+  width: 200px;
+  margin-left: 20px;
+  font-size: 3rem;
+  padding-top:15px;
 }
 
 #submit:hover {
