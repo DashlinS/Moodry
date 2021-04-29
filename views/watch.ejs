@@ -26,16 +26,16 @@
           <a class="nav-link scrollto myProfile outline" href="/profile">Profile</a>
         </li> -->
         <li>
-          <a class="nav-link scrollto active watchNow outline" href="/watch">Watch</a>
+          <a class="nav-link scrollto active watchNow outline visited" href="/watch">Watch</a>
         </li>
         <li>
-          <a class="nav-link scrollto homeStyle outline" href="/games">Games</a>
+          <a class="nav-link scrollto homeStyle outline visited" href="/games">Games</a>
         </li>
         <li>
-          <a class="nav-link scrollto contactUs outline" href="/learning">Learning</a>
+          <a class="nav-link scrollto contactUs outline visited" href="/learning">Learning</a>
         </li>
         <li>
-          <a class="nav-link scrollto aboutUs outline" href="/activity">Activities</a>
+          <a class="nav-link scrollto aboutUs outline visited" href="/activity">Activities</a>
         </li>
         <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
         <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
@@ -75,7 +75,7 @@
         </div>
       </div>
     </div>
-    <form action="/watch" method="POST">
+    <form action="/watch" method="POST" autocomplete="off">
       <input type="text" value="" name="video">
       <button type="submit">Search</button>
     </form>
@@ -112,4 +112,5 @@
 <!-- End Watch -->
 <script src="assets/js/mood.js"></script>
 <script src="assets/js/youtubeBorder.js"></script>
+<!-- <script src="assets/js/pageVisited.js"></script> -->
 <%- include('footer'); -%>

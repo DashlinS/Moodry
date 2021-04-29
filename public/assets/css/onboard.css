@@ -139,22 +139,33 @@ input[type=radio] {
   margin-bottom: 5px;
 }
 
-a#submit {
+#submit {
   border-radius: 10px;
   display: block;
-  border: 1px solid black;;
+  /* border: 1px solid black;; */
   margin-top: 5px;
   height: 100px;
   width: 200px;
   margin-left: 20px;
   font-size: 3rem;
+  background-color:#84E2FB;
   padding-top:15px;
+  /* position: relative;
+  top: 10px;
+  -webkit-animation: jump 0.5s ease-out infinite alternate; */
 }
 
 #submit:hover {
   background-color: #115d72;
   color: white;
 }
+
+@-webkit-keyframes jump {
+  100% {
+    top: -10px;
+  }
+}
+
 #submit:focus {
   outline: none;
 }

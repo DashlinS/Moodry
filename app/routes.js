@@ -363,8 +363,7 @@ module.exports = function(app, passport, db, fetch) {
          res.json("success");
        })
        .catch((error) => console.error(error));
-   });
-  
+   });  
 
   //API AND POST
   app.post("/watch", isLoggedIn, async function (req, res) {

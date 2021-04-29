@@ -167,7 +167,7 @@ section{
 
 .info ul {
   margin: 0;
-  padding: 10px;
+  padding: 20px;
   background-color: #84E2FB;
   border-radius: 15px;
 
@@ -175,13 +175,14 @@ section{
 .info ul li {
   list-style-type: none;
   font-family: 'Original Surfer';
-  font-size: 1.05rem;
+  font-size: 1.2rem;
 }
 
 .myComments {
   background: url(/images/pattern.png) center repeat;
   background-size: contain;
   background-color:white;
+  padding: 0px 20px;
 }
 
 .profileImage {
@@ -279,4 +280,53 @@ table thead th{
 
 img {
   border: 5px solid blue;
+}
+
+.col-sm-6 {
+  font-size: 1rem;
+  /* border: 1px solid black; */
+}
+
+.notes {
+  /* border: 1px solid black; */
+}
+
+#commentSection {
+  width: 100%;
+  height: 150px;
+  overflow-y: scroll;
+  background-color: white;
+  border:2px solid #00C3F7;
+  border-radius: 15px;
+}
+
+#commentSection li {
+  font-family: 'Varela Round',
+  sans-serif;
+}
+
+ol, ul {
+  padding: 0;
+  margin: 0;
+}
+
+form input {
+  margin: 0px 10px;
+  border: 4px solid blue;
+  border-radius: 10px;
+  width: 300px;
+  font-size: 1.2rem;
+}
+
+form button {
+  border: none;
+  font-family: jelly;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 4px solid blue;
+  background-color: white;
+}
+
+form input:focus {
+  outline: none;
 }
