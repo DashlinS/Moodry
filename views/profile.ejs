@@ -66,7 +66,7 @@
                 <li>Age: <%= userInfo.age %></li>
                 <li>Grade: <%= userInfo.grade %></li>
                 <li>Birthday: <%= userInfo.birthday %></li>
-                <li>Favorite Shows: <%= userInfo.favorite %></li>
+                <li>Favorite Show: <%= userInfo.favorite %></li>
               <% } else {%>
               <p>Could Not fetch Data</p>
               <% } %>
@@ -113,7 +113,6 @@
             <div class="scrollAssist">
               <table class="moodTable" style="width:100%;">
                 <thead>
-
                   <tr class="headtr">
                     <!-- <th></th> -->
                     <th>Date</th>
@@ -121,7 +120,7 @@
                     <th>Video</th>
                   </tr>
                 </thead>
-                <tbody class="tableBody">
+                <tbody class="allTables tableBody">
 
                 </tbody>
               </table>
@@ -129,40 +128,19 @@
           </div>
         </div>
       </div>
-      <!-- <div class="watchLog">
-        <h3>Messages Sent</h3>
-        <div id="tableWrapper" class="tableWrapper">
-          <div class="scrollAssist">
-            <table class="moodTable" style="width:100%;">
-              <thead>
-                <tr class="headtr">
-            
-                  <th>Date</th>
-                  <th>Message</th>
-                </tr>
-              </thead>
-              <tbody class="tableBody">
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div> -->
       <div class="games">
         <h3>Games Played</h3>
-        <div id="tableWrapper" class="tableWrapper">
+        <div id="tableWrapper " class="tableWrapper extraWrap">
           <div class="scrollAssist">
             <table class="moodTable" style="width:100%;">
               <thead>
-
                 <tr class="headtr">
                   <!-- <th></th> -->
                   <th>Date</th>
                   <th>Played</th>
-                  <th>Total Visited</th>
                 </tr>
               </thead>
-              <tbody class="tableBody">
+              <tbody class="allTables gameBody">
 
               </tbody>
             </table>
@@ -171,20 +149,35 @@
       </div>
       <div class="games">
         <h3>Learning Clicked</h3>
+        <div id="tableWrapper" class="tableWrapper extraWrap">
+          <div class="scrollAssist">
+            <table class="moodTable" style="width:100%;">
+              <thead>
+                <tr class="headtr">
+                  <!-- <th></th> -->
+                  <th>Date</th>
+                  <th>Selected</th>
+                </tr>
+              </thead>
+              <tbody class="allTables learnBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="games">
+        <h3>Activities Clicked</h3>
         <div id="tableWrapper" class="tableWrapper">
           <div class="scrollAssist">
             <table class="moodTable" style="width:100%;">
               <thead>
-
                 <tr class="headtr">
                   <!-- <th></th> -->
                   <th>Date</th>
-                  <th>Played</th>
-                  <th>Total Visited</th>
+                  <th>Selected</th>
                 </tr>
               </thead>
-              <tbody class="tableBody">
-
+              <tbody class="learnBody">
               </tbody>
             </table>
           </div>

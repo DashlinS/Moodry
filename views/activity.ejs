@@ -2,7 +2,7 @@
 
 <head>
 
-  <link rel="stylesheet" href="assets/css/weechat.css" />
+  <link rel="stylesheet" href="assets/css/activity.css" />
 </head>
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container d-flex align-items-center justify-content-between">
@@ -41,7 +41,7 @@
           <a class="nav-link scrollto contactUs outline" href="/learning">Learning</a>
         </li>
         <li>
-          <a class="nav-link scrollto aboutUs outline" href="/weechat">WeeChat</a>
+          <a class="nav-link scrollto aboutUs outline" href="/activity">Activities</a>
         </li>
         <li><a class="nav-link scrollto logout outline" href="/logout">Logout</a></li>
       </ul>
@@ -56,9 +56,9 @@
   <div class="container" data-aos="fade-up">
     <div class="section-title">
       <!-- <h2>F.A.Q</h2> -->
-      <h2>WeeChat</h2>
-       <div class="section-title-div">
-          <h3><%= userInfo.username %></h3>
+      <h2>Fun Activities!</h2>
+      <div class="section-title-div">
+        <h3><%= userInfo.username %></h3>
         <div>
           <img src="/images/profile-pics/<%=userInfo.profileImage%>.png" alt="userImage">
         </div>
@@ -66,22 +66,50 @@
     </div>
     <div class="row gy-4">
       <div class="leftHalf">
-        <div class="messaging">
-          <h2>Send a Message!</h2>
-          <div class="innerMessage">
-            <form action="">
-              <textarea name="" id="" cols="30" rows="5"></textarea>
-              <button>Send</button>
-            </form>
+        <div class="dailyActivity">
+          <h3>Activity of the day!</h3>
+          <div class="flex-row">
+            <div class="image">
+              <img src="/images/gummyb.jpg" alt="">
+            </div>
+            <div class="information">
+              <h2>Gummy Bears!</h2>
+              To make homemade gummy bears with JELLO you only need a package of JELLO and some gelatin. The easy thing
+              with this recipe is that you don’t need to worry about how to sweeten it. Our kids loved this version
+              because JELLO is sweet. We also love how bright and colorful the JELLO versions turned out. If you have
+              extra JELLO boxes lying around the house this is a perfect way to use up the box!
+              <ul class="firstUl">
+                <h4>Ingredients</h4>
+                <li>1 package of JELLO (85g/3 oz size)</li>
+                <li>1 tablespoon of gelatin</li>
+                <li>1/2 cup of water</li>
+                <li>gummy bear molds</li>
+                <h4>Directions</h4>
+              </ul>
+              <ul class="secondUl">
+                <li>Pour 1/2 cup of water into a sauce pan set on low heat</li>
+                <li>Add 1 package of Jello (85 size/3 oz size)</li>
+                <li>Add 1 tablespoon of gelatin</li>
+                <li>Mix until all dissolved and then remove from heat</li>
+                <li>Using the dropper add into your mold</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="feed">
-          <h2>The Feed</h2>
-          <div class="innerFeed"></div>
+        <div class="allActivity">
+          <div class="outdoor events">
+            <h3>Outdoor</h3>
+          </div>
+          <div class="indoor events">
+            <h3>Indoor</h3>
+          </div>
+          <div class="holiday events">
+            <h3>Holiday</h3>
+          </div>
         </div>
       </div>
     </div>
-    </div>
+  </div>
   </div>
 </section>
 <script src="assets/js/table.js"></script>

@@ -14,14 +14,15 @@ var userSchema = mongoose.Schema({
     videoName: String,
     comments: [String],
   },
-    moodData: [],
-    videoList: [],
+  moodData: [[]],
+  gamesData: [[]],
+  learnData: [[]],
   userInfo: {
     profileImage: String,
     myName: String,
     username: String,
     age: Number,
-    birthday: Date,
+    birthday: String,
     grade: String,
     favorite: String,
   }

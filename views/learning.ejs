@@ -33,7 +33,7 @@
           <a class="nav-link scrollto contactUs outline" href="/learning">Learning</a>
         </li>
         <li>
-          <a class="nav-link scrollto aboutUs outline" href="/weechat">WeeChat</a>
+          <a class="nav-link scrollto aboutUs outline" href="/activity">Activities</a>
         </li>
         <li><a class="nav-link scrollto logout outline" href="/logout">Logout</a></li>
       </ul>
@@ -48,7 +48,7 @@
   <div class="container" data-aos="fade-up">
     <div class="section-title">
       <!-- <h2>F.A.Q</h2> -->
-      <h2>Learning</h2>
+      <h2>Let's Learn!</h2>
        <div class="section-title-div">
           <h3><%= userInfo.username %></h3>
         <div>
@@ -60,15 +60,15 @@
       <div class="leftHalf">
         <div>
           <h4>My Multiplication</h4>
-          <a href="/learnOne"><img src="/images/learning/multiply.png" alt=""></a>
+          <a href="/learnOne"><img src="/images/learning/multiply.png" class="learn" data-value="Multiply Matching" alt=""></a>
         </div>
         <div>
           <h4>Matching Addition</h4>
-          <a href="/learnTwo"><img src="/images/learning/matchingAddition.jpg" alt=""></a>
+          <a href="/learnTwo"><img src="/images/learning/matchingAddition.jpg" class="learn" data-value="Matching Addition" alt=""></a>
         </div>
         <div>
           <h4>Animal Farm</h4>
-          <a href="learnThree"><img src="/images/learning/animalFarm.jpg" alt=""></a>
+          <a href="learnThree"><img src="/images/learning/animalFarm.jpg" class="learn"  data-value="Animal Farm Matching" alt=""></a>
         </div>
       </div>
       <!-- <iframe src="https://learningapps.org/watch?v=pagh8fp8k21" style="border:0px;width:100%;height:500px" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>-->
@@ -78,5 +78,5 @@
     </div>
   </div>
 </section>
-<script src="assets/js/table.js"></script>
+<script src="assets/js/learning.js"></script>
 <%- include('footer'); -%>

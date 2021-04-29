@@ -33,7 +33,7 @@
           <a class="nav-link scrollto contactUs outline" href="/learning">Learning</a>
         </li>
         <li>
-          <a class="nav-link scrollto aboutUs outline" href="/weechat">WeeChat</a>
+          <a class="nav-link scrollto aboutUs outline" href="/activity">Activities</a>
         </li>
         <li><a class="nav-link scrollto logout outline" href="/logout">Logout</a></li>
       </ul>
@@ -48,8 +48,8 @@
   <div class="container" data-aos="fade-up">
     <div class="section-title">
       <!-- <h2>F.A.Q</h2> -->
-      <h2>Games</h2>
-       <div class="section-title-div">
+      <h2>Let's Play!</h2>
+      <div class="section-title-div">
           <h3><%= userInfo.username %></h3>
         <div>
           <img src="/images/profile-pics/<%=userInfo.profileImage%>.png" alt="userImage">
@@ -60,19 +60,19 @@
       <div class="leftHalf">
         <div>
           <h4>Geometry Tower</h4>
-          <a href="/gameOne" class="games gameOne" data-value="Geometry Tower"><img src="/images/games/geometry-tower.jpg" alt=""></a>
+          <a href="/gameOne" class="gameOne"><img class="games" src="/images/games/geometry-tower.jpg" data-value="Geometry Tower" alt=""></a>
         </div>
         <div>
           <h4>Smarty Bubbles</h4>
-          <a href="/gameTwo" class="games gameTwo" data-value="Smarty Bubbles"><img src="/images/games/smartybubbles.jpg" alt=""></a>
+          <a href="/gameTwo" class="gameTwo" ><img class="games" src="/images/games/smartybubbles.jpg" data-value="Smarty Bubbles" alt=""></a>
         </div>
         <div>
           <h4>Stack Colors</h4>
-          <a href="/gameThree" class="games gameThree" data-value="Stack Colors"><img src="/images/games/stackColors.png" alt=""></a>
+          <a href="/gameThree" class="gameThree" ><img class="games" src="/images/games/stackColors.png" data-value="Stack Colors" alt=""></a>
         </div> 
         <div>
           <h4>Beat Hop</h4>
-          <a href="/gameFour" class="games gameFour" data-value="Beat Hop"><img src="/images/games/beathop.png" alt=""></a>
+          <a href="/gameFour" class="gameFour"><img class="games" src="/images/games/beathop.png" data-value="Beat Hop" alt=""></a>
         </div>
         
       </div>
@@ -84,5 +84,5 @@
   </div>
 </section>
 <!-- <script src="assets/js/table.js"></script> -->
-<script src="assets/js/games.js"></script>
+<script src="assets/js/game.js"></script>
 <%- include('footer'); -%>

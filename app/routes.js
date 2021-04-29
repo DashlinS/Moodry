@@ -49,7 +49,8 @@ module.exports = function(app, passport, db, fetch) {
 
     //Wont send to onboarding page if true.
     user.local.onBoardingComplete = true
-    console.log(userInfo.profileImage)
+    userInfo.birthday = userInfo.birthday.slice(0, 15);
+
     const result = await user.save()
     .then(result => {
       res.redirect('/profile')
@@ -68,7 +69,6 @@ module.exports = function(app, passport, db, fetch) {
         res.render("about.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo,
         });
       });
   });
@@ -81,7 +81,6 @@ module.exports = function(app, passport, db, fetch) {
         res.render("aboutUser.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo,
         });
       }); 
   });
@@ -231,12 +230,12 @@ module.exports = function(app, passport, db, fetch) {
   });
 
   // CHAT SECTION =========================
-  app.get("/weechat", isLoggedIn, function (req, res) {
+  app.get("/activity", isLoggedIn, function (req, res) {
     db.collection("moodry")
       .find()
       .toArray((err, result) => {
         if (err) return console.log(err);
-        res.render("weechat.ejs", {
+        res.render("activity.ejs", {
           user: req.user,
           moodry: result,
           userInfo: req.user.userInfo
@@ -252,7 +251,6 @@ module.exports = function(app, passport, db, fetch) {
         res.render("contact.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
         });
       });
   });
@@ -264,21 +262,82 @@ module.exports = function(app, passport, db, fetch) {
         res.render("contactUser.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
         });
       });
   });
 
-  // WATCH SECTION =========================
+  // TABLE CREATION SECTION =========================
   app.get("/tableCreate", isLoggedIn, async function (req, res) {
     const moodData = req.user.moodData;
     res.json(moodData);
-    // console.log(moodData)
   });
+   app.get("/gameCreate", isLoggedIn, async function (req, res) {
+     const gamesData = req.user.gamesData;
+     res.json(gamesData);
+   });
+   app.get("/learnCreate", isLoggedIn, async function (req, res) {
+     const learnData = req.user.learnData;
+     res.json(learnData)
+   });
 
+   //GAME DATA POST
+   app.post("/gameCreate", isLoggedIn, async function (req, res) {
+    //DATE
+    var dateTime = new Date();
+    dateTime =
+      ("0" + (dateTime.getMonth() + 1)).slice(-2) +
+      "/" +
+      ("0" + dateTime.getDate()).slice(-2) +
+      "/" +
+      dateTime.getFullYear();
+
+    let gamesData = req.user.gamesData;
+    let gameName = req.body.gameName
+    gamesData.push([gameName, dateTime]);
+    console.log(gamesData)
+    var user = await User.findById(req.user._id);
+    user.gamesData = gamesData;
+    // user.info.lastVideo = url;
+
+    let result = await user
+      .save()
+      .then((result) => {
+        res.json("success");
+      })
+      .catch((error) => console.error(error));
+   });
+
+   //LEARN DATA POST
+   app.post("/learnCreate", isLoggedIn, async function (req, res) {
+     //DATE
+     var dateTime = new Date();
+     dateTime =
+       ("0" + (dateTime.getMonth() + 1)).slice(-2) +
+       "/" +
+       ("0" + dateTime.getDate()).slice(-2) +
+       "/" +
+       dateTime.getFullYear();
+
+     let learnData = req.user.learnData;
+     let learnName = req.body.learnName;
+
+     learnData.push([learnName, dateTime]);
+     console.log(learnData)
+     var user = await User.findById(req.user._id);
+     user.learnData = learnData;
+     // user.info.lastVideo = url;
+
+     let result = await user
+       .save()
+       .then((result) => {
+         res.json("success");
+       })
+       .catch((error) => console.error(error));
+   });
+  
+
+  //API AND POST
   app.post("/watch", isLoggedIn, async function (req, res) {
-    //MoodPicker
-
     // Randomizer for Different Videos
     let randomVideo = Math.floor(Math.random() * 3) + 1;
 
@@ -310,11 +369,12 @@ module.exports = function(app, passport, db, fetch) {
     let result = await user
       .save()
       .then((result) => {
-        res.render("watch.ejs", { url: url });
+        res.render("watch.ejs", { url: url, userInfo: req.user.userInfo});
       })
       .catch((error) => console.error(error));
   });
 
+  // MOOD SELECTOR POST
   app.post("/moodPicked", isLoggedIn, async function (req, res) {
     //DATE
     var dateTime = new Date();
@@ -341,6 +401,7 @@ module.exports = function(app, passport, db, fetch) {
       .catch((error) => console.error(error));
   });
 
+  //WATCH SECTION
   app.get("/watch", isLoggedIn, function (req, res) {
     db.collection("moodry")
       .find()

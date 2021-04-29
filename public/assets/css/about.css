@@ -107,3 +107,7 @@ h3 span{
   text-shadow: -0.5px -0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px 0.5px 0 #000;
   margin-top:10px;
 }
+
+ol, ul {
+  padding: 0px 20px;
+}

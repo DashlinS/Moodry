@@ -505,7 +505,7 @@ a:hover {
   display: inline-block;
   padding: 8px 28px;
   border-radius: 3px;
-  transition: 0.5s;
+  /* transition: 1s; */
   margin-top: 30px;
   color: #fff;
   background: #eb5d1e;
@@ -1663,9 +1663,9 @@ span:hover {
 }
 
 .section-title-div {
-  border: 1px solid rgba(255, 255, 255, 0.52);
+  /* border: 1px solid rgba(255, 255, 255, 0.52); */
   border-radius: 10px;
-  background-color: #00c2f7c4;
+  /* background-color: #00c2f7c4; */
   position: absolute;
   right: 20px;
   height: 100px;
@@ -1678,14 +1678,17 @@ span:hover {
 .section-title-div h3 {
   color: white;
   text-shadow: -0.5px -0.5px 0 #000,
-    0.5px -0.5px 0 #000,
-    -0.5px 0.5px 0 #000,
-    0.5px 0.5px 0 #000;
+  0.5px -0.5px 0 #000,
+  -0.5px 0.5px 0 #000,
+  0.5px 0.5px 0 #000;
+  font-size: 2.5rem;
+  padding: 0px 10px;
 }
 
 .section-title img {
   width: 90px;
   height: 90px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 50%;
+  background-color: #84E2FB;
 }

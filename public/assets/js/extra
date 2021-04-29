@@ -2,17 +2,17 @@ var radios = document.getElementsByTagName("input");
 
 var picked;
 var image;
+
 document.querySelector('#submit').addEventListener('click', check)
 
-async function check() {
-  let myName = document.querySelector(".name").value;
-  let username = document.querySelector(".username").value;
-  let age = document.querySelector(".age").value;
-  let birthday = document.querySelector(".birthday").value;
-  let grade = document.querySelector(".grade").value;
-  let favorite = document.querySelector(".favorite").value;
-  
-
+async function check(){
+  let myName = document.querySelector('.name').value
+  let username = document.querySelector('.username').value
+  let age = document.querySelector('.age').value
+  let birthday = document.querySelector('.birthday').value
+  let grade = document.querySelector('.grade').value
+  let favorite = document.querySelector('.favorite').value
+  console.log
   for (var i = 0; i < radios.length; i++) {
     if (radios[i].type === "radio" && radios[i].checked) {
       // get value, set checked flag or do whatever you need to
@@ -31,17 +31,13 @@ async function check() {
   };
   const onboard = await fetch("/onboard", {
     method: "POST",
-    body: JSON.stringify({
-      userInfo: userInfo,
-    }),
+    body: JSON.stringify({ 
+      userInfo : userInfo
+     }),
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-  });
+  })
   window.location.href = "/profile";
 }
-
-
-//first enter information
-//click create when it is filled out, then make create unclickable and make button clickable and then press button to go to next page

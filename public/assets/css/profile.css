@@ -59,6 +59,11 @@
   text-align: center;
 }
 
+.leftHalf h4 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
 .leftHalf {
   display: flex;
   flex-direction: row;
@@ -99,9 +104,9 @@ section{
 }
 
 .section-title-div {
-  border: 1px solid rgba(255, 255, 255, 0.52);
+  /* border: 1px solid rgba(255, 255, 255, 0.52); */
   border-radius: 10px;
-  background-color: #00c2f7c4;
+  /* background-color: #00c2f7c4; */
   position: absolute;
   right: 20px;
   height: 100px;
@@ -122,8 +127,9 @@ section{
 .section-title img {
   width: 90px;
   height: 90px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 50%;
+  background-color: #84E2FB;
 }
 .col-sm-6 {
   padding: 10px;
@@ -145,7 +151,7 @@ section{
 .mainInfo {
   display: flex;
   justify-content: space-evenly;
-  background-color:white;
+  /* background-color:white; */
 }
 
 .myInfo {
@@ -155,7 +161,7 @@ section{
 }
 
 .info {
-  border:1px solid black;
+  /* border:1px solid black; */
   width: 300px;
   height:220px;
  
@@ -164,12 +170,14 @@ section{
 .info ul {
   margin: 0;
   padding: 10px;
+  background-color: #84E2FB;
+  border-radius: 15px;
+
 }
 .info ul li {
   list-style-type: none;
-   font-family: 'Varela Round',
-   sans-serif;
-   font-size: 1.11rem;
+   font-family: 'Original Surfer';
+   font-size: 1.05rem;
 }
 
 .myComments {
@@ -179,13 +187,16 @@ section{
 }
 
 .profileImage {
-  border:1px solid black;
+  /* border:1px solid black; */
   width: 200px;
   height:220px;
 }
 
 .profileImage img {
   width: 100%;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: #84E2FB;
 }
 
 .tableWrapper{
@@ -194,7 +205,7 @@ section{
   padding:10px;
   position: relative;
   margin-top: 1%;
-  height: 100%;
+  /* height: 100%; */
   /* visibility: hidden; */
 }
 .scrollAssist{
@@ -206,23 +217,25 @@ section{
 .tableWrapper tr{
   border-bottom: 1px solid lightgray;
 }
-.tableBody tr{
+.allTables tr {
   display: flex;
   justify-content: space-evenly;
   border-bottom: 1px solid black;
 }
 
-.tableBody {
+.allTables {
   height: 400px;
 }
 
-.tableBody td{
+.allTables td {
   width: 100%;
   text-align: center;
   height: 10%;
   font-size: 1.2rem;
   font-family: 'Varela Round', sans-serif;
+  padding: 7px 0px;
 }
+
 table{
   background-color: rgba(255, 255, 255, 0.55);
   margin-top: 3%;
@@ -247,17 +260,25 @@ table thead th{
 }
 
 .games {
-  width: 45%;
+  width: 30%;
   height: 355px;
   border-radius: 15px;
   background-color: #fff;
   border-top: 4px solid blue;
   border-bottom: 4px solid blue;
-  background: url(/images/pattern.png) center repeat;
-  background-size: contain;
+  background: url(/images/pattern.png) center center no-repeat;
+  background-size: cover;
   background-color:white;
 }
 
 .games h3{
   text-align: center;
+}
+
+.extraWrap {
+  padding-top:30px;
+}
+
+img {
+  border: 5px solid blue;
 }
