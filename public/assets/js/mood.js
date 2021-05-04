@@ -1,7 +1,7 @@
 document.querySelectorAll('.four-motions').forEach(mood => {
   mood.addEventListener("click", getMood, { once: true });
 })
-let clicked = false
+// let clicked = false
 
 function getMood(event){
   const moodAnimation = event.target;

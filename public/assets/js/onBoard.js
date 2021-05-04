@@ -2,6 +2,7 @@ var radios = document.getElementsByTagName("input");
 
 var picked;
 var image;
+
 document.querySelector('#submit').addEventListener('click', check)
 
 async function check() {
@@ -13,13 +14,14 @@ async function check() {
   let favorite = document.querySelector(".favorite").value;
   
 
-  for (var i = 0; i < radios.length; i++) {
+  for (let i = 0; i < radios.length; i++) {
     if (radios[i].type === "radio" && radios[i].checked) {
       // get value, set checked flag or do whatever you need to
       picked = radios[i].value;
       image = radios[i].getAttribute("data-image");
     }
   }
+  
   let userInfo = {
     profileImage: image,
     myName: myName,
@@ -41,7 +43,3 @@ async function check() {
   });
   window.location.href = "/profile";
 }
-
-
-//first enter information
-//click create when it is filled out, then make create unclickable and make button clickable and then press button to go to next page

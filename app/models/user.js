@@ -12,7 +12,6 @@ var userSchema = mongoose.Schema({
   info: {
     lastVideo: String,
     videoName: String,
-    comments: [String],
   },
   moodData: [[]],
   gamesData: [[]],
