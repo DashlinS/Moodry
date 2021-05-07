@@ -1,7 +1,17 @@
 const User = require("./models/user");
 
 module.exports = function(app, passport, db, fetch) {
+  //DATE
+  var dateTime = new Date();
+  dateTime =
+    ("0" + (dateTime.getMonth() + 1)).slice(-2) +
+    "/" +
+    ("0" + dateTime.getDate()).slice(-2) +
+    "/" +
+    dateTime.getFullYear();
+    
   var linkTitle;
+  
   // normal routes     ===============================================================
   // show the home page (will also have our login links)
   app.get("/", function (req, res) {
@@ -17,17 +27,17 @@ module.exports = function(app, passport, db, fetch) {
         res.render("index.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
+
   // ONBOARD SECTION =========================
   app.get("/onboard", isLoggedIn, function (req, res) {
-    const onBoarded = req.user.local.onBoardingComplete
-    if (onBoarded){
-      res.redirect("/profile")
-    }
-    else {
+    const onBoarded = req.user.local.onBoardingComplete;
+    if (onBoarded) {
+      res.redirect("/profile");
+    } else {
       db.collection("moodry")
         .find()
         .toArray((err, result) => {
@@ -35,29 +45,29 @@ module.exports = function(app, passport, db, fetch) {
           res.render("onboard.ejs", {
             user: req.user,
             moodry: result,
-            userInfo: req.user.userInfo
+            userInfo: req.user.userInfo,
           });
         });
     }
   });
+
   app.post("/onboard", isLoggedIn, async function (req, res) {
-    let user = await User.findById(req.user._id)
-    const userInfo = req.body.userInfo
-    user.userInfo = userInfo
-    // let image = user.userInfo.profileImage;
-    // console.log(image, 'My image')
+    let user = await User.findById(req.user._id);
+    const userInfo = req.body.userInfo;
+    user.userInfo = userInfo;
 
     //Wont send to onboarding page if true.
-    user.local.onBoardingComplete = true
+    user.local.onBoardingComplete = true;
     userInfo.birthday = userInfo.birthday.slice(0, 15);
 
-    const result = await user.save()
-    .then(result => {
-      res.redirect('/profile')
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    const result = await user
+      .save()
+      .then((result) => {
+        res.redirect("/profile");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 
   // ABOUT SECTION =========================
@@ -82,7 +92,7 @@ module.exports = function(app, passport, db, fetch) {
           user: req.user,
           moodry: result,
         });
-      }); 
+      });
   });
   // PROFILE SECTION =========================
   app.get("/profile", isLoggedIn, function (req, res) {
@@ -93,11 +103,10 @@ module.exports = function(app, passport, db, fetch) {
         res.render("profile.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
-
 
   app.post("/moodry", (req, res) => {
     db.collection("moodry").save(
@@ -119,7 +128,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("games.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -132,7 +141,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("gameOne.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -145,7 +154,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("gameTwo.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -158,7 +167,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("gameThree.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -171,7 +180,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("gameFour.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -185,7 +194,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("learning.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -198,7 +207,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("learnOne.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -211,7 +220,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("learnTwo.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -224,7 +233,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("learnThree.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -238,7 +247,7 @@ module.exports = function(app, passport, db, fetch) {
         res.render("activity.ejs", {
           user: req.user,
           moodry: result,
-          userInfo: req.user.userInfo
+          userInfo: req.user.userInfo,
         });
       });
   });
@@ -271,34 +280,25 @@ module.exports = function(app, passport, db, fetch) {
     const moodData = req.user.moodData;
     res.json(moodData);
   });
-   app.get("/gameCreate", isLoggedIn, async function (req, res) {
-     const gamesData = req.user.gamesData;
-     res.json(gamesData);
-   });
-   app.get("/learnCreate", isLoggedIn, async function (req, res) {
-     const learnData = req.user.learnData;
-     res.json(learnData)
-   });
-   app.get("/doActivity", isLoggedIn, async function (req, res) {
-     const activityData = req.user.activityData;
-     res.json(activityData)
-   });
+  app.get("/gameCreate", isLoggedIn, async function (req, res) {
+    const gamesData = req.user.gamesData;
+    res.json(gamesData);
+  });
+  app.get("/learnCreate", isLoggedIn, async function (req, res) {
+    const learnData = req.user.learnData;
+    res.json(learnData);
+  });
+  app.get("/doActivity", isLoggedIn, async function (req, res) {
+    const activityData = req.user.activityData;
+    res.json(activityData);
+  });
 
-   //GAME DATA POST
-   app.post("/gameCreate", isLoggedIn, async function (req, res) {
-    //DATE
-    var dateTime = new Date();
-    dateTime =
-      ("0" + (dateTime.getMonth() + 1)).slice(-2) +
-      "/" +
-      ("0" + dateTime.getDate()).slice(-2) +
-      "/" +
-      dateTime.getFullYear();
-
+  //GAME DATA POST
+  app.post("/gameCreate", isLoggedIn, async function (req, res) {
     let gamesData = req.user.gamesData;
-    let gameName = req.body.gameName
+    let gameName = req.body.gameName;
     gamesData.push([gameName, dateTime]);
-    console.log(gamesData)
+    console.log(gamesData);
     var user = await User.findById(req.user._id);
     user.gamesData = gamesData;
     // user.info.lastVideo = url;
@@ -309,61 +309,43 @@ module.exports = function(app, passport, db, fetch) {
         res.json("success");
       })
       .catch((error) => console.error(error));
-   });
+  });
 
-   //LEARN DATA POST
-   app.post("/learnCreate", isLoggedIn, async function (req, res) {
-     //DATE
-     var dateTime = new Date();
-     dateTime =
-       ("0" + (dateTime.getMonth() + 1)).slice(-2) +
-       "/" +
-       ("0" + dateTime.getDate()).slice(-2) +
-       "/" +
-       dateTime.getFullYear();
+  //LEARN DATA POST
+  app.post("/learnCreate", isLoggedIn, async function (req, res) {
+    let learnData = req.user.learnData;
+    let learnName = req.body.learnName;
 
-     let learnData = req.user.learnData;
-     let learnName = req.body.learnName;
+    learnData.push([learnName, dateTime]);
+    // console.log(learnData);
+    var user = await User.findById(req.user._id);
+    user.learnData = learnData;
 
-     learnData.push([learnName, dateTime]);
-     console.log(learnData)
-     var user = await User.findById(req.user._id);
-     user.learnData = learnData;
-     // user.info.lastVideo = url;
+    let result = await user
+      .save()
+      .then((result) => {
+        res.json("success");
+      })
+      .catch((error) => console.error(error));
+  });
 
-     let result = await user
-       .save()
-       .then((result) => {
-         res.json("success");
-       })
-       .catch((error) => console.error(error));
-   });
-   //ACTIVITY DATA POST
-   app.post("/doActivity", isLoggedIn, async function (req, res) {
-     //DATE
-     var dateTime = new Date();
-     dateTime =
-       ("0" + (dateTime.getMonth() + 1)).slice(-2) +
-       "/" +
-       ("0" + dateTime.getDate()).slice(-2) +
-       "/" +
-       dateTime.getFullYear();
+  //ACTIVITY DATA POST
+  app.post("/doActivity", isLoggedIn, async function (req, res) {
+  
+    let activityData = req.user.activityData;
+    let activity = req.body.activity;
+    activityData.push([activity, dateTime]);
+    console.log(activityData);
+    var user = await User.findById(req.user._id);
+    user.activityData = activityData;
 
-     let activityData = req.user.activityData;
-     let activity = req.body.activity;
-     activityData.push([activity, dateTime]);
-     console.log(activityData);
-     var user = await User.findById(req.user._id);
-     user.activityData = activityData;
-     // user.info.lastVideo = url;
-
-     let result = await user
-       .save()
-       .then((result) => {
-         res.json("success");
-       })
-       .catch((error) => console.error(error));
-   });  
+    let result = await user
+      .save()
+      .then((result) => {
+        res.json("success");
+      })
+      .catch((error) => console.error(error));
+  });
 
   //API AND POST
   app.post("/watch", isLoggedIn, async function (req, res) {
@@ -398,29 +380,20 @@ module.exports = function(app, passport, db, fetch) {
     let result = await user
       .save()
       .then((result) => {
-        res.render("watch.ejs", { url: url, userInfo: req.user.userInfo});
+        res.render("watch.ejs", { url: url, userInfo: req.user.userInfo });
       })
       .catch((error) => console.error(error));
   });
 
   // MOOD SELECTOR POST
   app.post("/moodPicked", isLoggedIn, async function (req, res) {
-    //DATE
-    var dateTime = new Date();
-    dateTime =
-      ("0" + (dateTime.getMonth() + 1)).slice(-2) +
-      "/" +
-      ("0" + dateTime.getDate()).slice(-2) +
-      "/" +
-      dateTime.getFullYear()
-
-    //mood picker
+    //mood picker data being imported 
     let moodPicked = req.body.moodPicked;
+
     let moodData = req.user.moodData;
     moodData.push([linkTitle, moodPicked, dateTime]);
     var user = await User.findById(req.user._id);
     user.moodData = moodData;
-    // user.info.lastVideo = url;
 
     let result = await user
       .save()
